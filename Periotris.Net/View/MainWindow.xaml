@@ -6,13 +6,15 @@
                  xmlns:local="clr-namespace:Periotris.Net.View"
                  xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
                  xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+                 xmlns:p="clr-namespace:Periotris.Net.Properties"
                  mc:Ignorable="d"
-                 Title="Periotris .NET" Height="600" Width="800"
+                 Title="{x:Static p:MainWindowResources.MainWindowTitle}" Height="600" Width="800"
                  MinHeight="420" MinWidth="560">
     <mah:MetroWindow.RightWindowCommands>
         <mah:WindowCommands>
             <Button Click="LaunchGitHubRepo"
-                    Content="View on GitHub" ToolTip="Periotris GitHub repository">
+                    Content="{x:Static p:MainWindowResources.LaunchGitHubRepoButtonContent}"
+                    ToolTip="{x:Static p:MainWindowResources.LaunchGitHubRepoButtonToolTip}">
                 <Button.ContentTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -31,13 +33,12 @@
     </mah:MetroWindow.RightWindowCommands>
     <mah:MetroWindow.Flyouts>
         <mah:FlyoutsControl>
-            <mah:Flyout x:Name="AboutFlyout" Header="About"
+            <mah:Flyout x:Name="AboutFlyout" Header="{x:Static p:MainWindowResources.AboutFlyoutHeader}"
                         Position="Right" Width="250">
-                <TextBlock Text=""
+                <TextBlock Text="{x:Static p:MainWindowResources.AboutFlyoutText}"
                            Margin="10 10 10 10"
                            Foreground="White"
                            FontFamily="Microsoft YaHei UI" TextWrapping="Wrap">
-                    Copyright (c) 2020-2021 Rong "Mantle" Bao. Licensed under GNU General Public License version 3.
                 </TextBlock>
             </mah:Flyout>
         </mah:FlyoutsControl>

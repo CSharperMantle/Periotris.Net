@@ -2,7 +2,7 @@
 
 Periotris.Net is a .NET 5 porting and modernized version of CSharperMantle's Periotris game belonging to [CmTetris](https://github.com/CSharperMantle/CmTetris) product family.
 
-![Screenshot of Periotris.Net 1.7.2](https://user-images.githubusercontent.com/32665105/108997960-37bd4b80-76db-11eb-8554-237beb8d5d3e.png)
+![Screenshot of Periotris.Net 1.7.3](https://user-images.githubusercontent.com/32665105/123510360-96a4c880-d6ad-11eb-999d-8284c71eaa79.png)
 
 ## Documentation
 Please refer to the [wiki/Introduction](https://github.com/CSharperMantle/CmTetris/wiki/Introduction) when the Periotris.Net docs are under construction.

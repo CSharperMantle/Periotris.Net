@@ -5,6 +5,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:local="clr-namespace:Periotris.Net.View"
       xmlns:viewModel="clr-namespace:Periotris.Net.ViewModel"
+      xmlns:p="clr-namespace:Periotris.Net.Properties"
       mc:Ignorable="d"
       d:DesignWidth="800" d:DesignHeight="600"
       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
@@ -78,7 +79,7 @@
                     HorizontalAlignment="Stretch" VerticalAlignment="Center"
                     Opacity="0.9" Background="DarkSlateGray"
                     Visibility="{Binding Path=GameOver, Converter={StaticResource VisibilityConverter}}">
-            <TextBlock Text="Game End"
+            <TextBlock Text="{x:Static p:GamePageResources.GameEndCheckBoxContent}"
                        VerticalAlignment="Center" HorizontalAlignment="Center"
                        Opacity="1" Foreground="Yellow"
                        FontWeight="Bold" FontSize="70" FontFamily="Microsoft YaHei" />
@@ -86,12 +87,12 @@
                 HorizontalAlignment="Center"
                 Orientation="Horizontal">
                 <Button x:Name="BeginButton"
-                        Content="Start"
+                        Content="{x:Static p:GamePageResources.BeginButtonContent}"
                         HorizontalAlignment="Center" Width="100" Margin="0 0 5 0"
                         Style="{DynamicResource MahApps.Styles.Button.Flat}"
                         Click="BeginButton_Click" />
                 <Button x:Name="BackButton"
-                        Content="Back"
+                        Content="{x:Static p:GamePageResources.BackButtonContent}"
                         HorizontalAlignment="Center" Width="100" Margin="5 0 0 0"
                         Style="{DynamicResource MahApps.Styles.Button.Flat}"
                         Click="BackButton_Click" />
@@ -99,12 +100,12 @@
             <StackPanel Orientation="Horizontal"
                         HorizontalAlignment="Center" VerticalAlignment="Center">
                 <CheckBox x:Name="ColorsCheckBox"
-                          Content="Colors"
+                          Content="{x:Static p:GamePageResources.ColorsCheckBoxContent}"
                           HorizontalAlignment="Center" VerticalAlignment="Center"
                           Style="{DynamicResource MahApps.Styles.CheckBox.Win10}"
                           IsChecked="{Binding Path=RenderColors, Mode=TwoWay}" />
                 <CheckBox x:Name="GridAssistanceCheckBox"
-                          Content="Assistance grid"
+                          Content="{x:Static p:GamePageResources.GridAssistanceCheckBoxContent}"
                           HorizontalAlignment="Center" VerticalAlignment="Center"
                           Style="{DynamicResource MahApps.Styles.CheckBox.Win10}"
                           IsChecked="{Binding Path=RenderGridAssistance, Mode=TwoWay}" />
