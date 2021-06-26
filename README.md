@@ -1,4 +1,4 @@
-# Periotris.Net
+# Periotris.Net [![.NET](https://github.com/CSharperMantle/Periotris.Net/actions/workflows/dotnet.yml/badge.svg?branch=main)](https://github.com/CSharperMantle/Periotris.Net/actions/workflows/dotnet.yml)
 
 Periotris.Net is a .NET 5 porting and modernized version of CSharperMantle's Periotris game belonging to [CmTetris](https://github.com/CSharperMantle/CmTetris) product family.
 
