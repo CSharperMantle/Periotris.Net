@@ -28,10 +28,9 @@ namespace Periotris.Net.View
             }
         }
 
-        private void GamePage_KeyDown(object sender, KeyEventArgs e)
+        private void GamePage_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            _viewModel.OnKeyDown(e.Key);
-            e.Handled = true;
+            e.Handled = _viewModel.OnKeyDown(e.Key);
         }
 
         private void GamePage_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -71,12 +70,12 @@ namespace Periotris.Net.View
 
         private void GamePage_Loaded(object sender, RoutedEventArgs e)
         {
-            Application.Current.MainWindow.KeyDown += GamePage_KeyDown;
+            Application.Current.MainWindow.PreviewKeyDown += GamePage_PreviewKeyDown;
         }
 
         private void GamePage_Unloaded(object sender, RoutedEventArgs e)
         {
-            Application.Current.MainWindow.KeyDown -= GamePage_KeyDown;
+            Application.Current.MainWindow.PreviewKeyDown -= GamePage_PreviewKeyDown;
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)

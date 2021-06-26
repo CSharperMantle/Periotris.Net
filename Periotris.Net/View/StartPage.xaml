@@ -18,7 +18,7 @@
         <StackPanel Grid.Row="1"
                     VerticalAlignment="Center">
             <TextBlock
-                Text="Periotris"
+                Text="Periotris .NET"
                 HorizontalAlignment="Stretch" VerticalAlignment="Center"
                 FontSize="60" TextAlignment="Center" Foreground="White" FontFamily="Microsoft YaHei UI" />
         </StackPanel>

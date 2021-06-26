@@ -103,7 +103,12 @@ namespace Periotris.Net.ViewModel
             _timeDisplayRefreshTimer.Start();
         }
 
-        public void OnKeyDown(Key key)
+        /// <summary>
+        /// KeyDown event handler.
+        /// </summary>
+        /// <param name="key">The <see cref="Key"/> pressed.</param>
+        /// <returns>Whether the key is handled, that is, a key for game control.</returns>
+        public bool OnKeyDown(Key key)
         {
             if (Paused)
             {
@@ -112,7 +117,7 @@ namespace Periotris.Net.ViewModel
                     Paused = !Paused;
                 }
 
-                return;
+                return true;
             }
 
             switch (key)
@@ -147,7 +152,10 @@ namespace Periotris.Net.ViewModel
                 case Key.Escape:
                     Paused = !Paused;
                     break;
+                default:
+                    return false;
             }
+            return true;
         }
 
         private void EndGame()

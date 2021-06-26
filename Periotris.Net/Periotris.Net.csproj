@@ -14,16 +14,20 @@
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/CSharperMantle/Periotris.Net</PackageProjectUrl>
     <RepositoryUrl>https://github.com/CSharperMantle/Periotris.Net.git</RepositoryUrl>
-    <AssemblyVersion>1.7.2.1</AssemblyVersion>
-    <FileVersion>1.7.2.1</FileVersion>
+    <AssemblyVersion>1.7.3.0</AssemblyVersion>
+    <FileVersion>1.7.3.0</FileVersion>
     <Description>Periotris.Net is a .NET 5 porting and modernized version of CSharperMantle's Periotris game belonging to CmTetris product family.</Description>
     <Copyright>Copyright (c) 2020-present Rong "Mantle" Bao (aka CSharperMantle)</Copyright>
     <NeutralLanguage>en</NeutralLanguage>
     <PackageTags>game;tetris;tetrimino;wpf;chemistry;periodic-table;tetromino-tiling;tetromino-solver;puzzle</PackageTags>
     <SignAssembly>false</SignAssembly>
     <ApplicationIcon>Icon.ico</ApplicationIcon>
-    <Version>1.7.2</Version>
+    <Version>1.7.3</Version>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\PeriodicTable.json" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MahApps.Metro" Version="2.4.6" />
@@ -40,6 +44,10 @@
 
   <ItemGroup>
     <Folder Include="Resources\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\PeriodicTable.json" />
   </ItemGroup>
 
   <ItemGroup>

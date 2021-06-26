@@ -34,7 +34,7 @@ namespace Periotris.Net.View
 
         private void LaunchGitHubRepo(object sender, RoutedEventArgs eventArgs)
         {
-            Process.Start("https://github.com/CSharperMantle/CmTetris");
+            Process.Start("https://github.com/CSharperMantle/Periotris.Net");
         }
     }
 }

@@ -7,7 +7,7 @@
                  xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
                  xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
                  mc:Ignorable="d"
-                 Title="Periotris" Height="600" Width="800"
+                 Title="Periotris .NET" Height="600" Width="800"
                  MinHeight="420" MinWidth="560">
     <mah:MetroWindow.RightWindowCommands>
         <mah:WindowCommands>
@@ -44,5 +44,5 @@
     </mah:MetroWindow.Flyouts>
     <Frame x:Name="MainFrame"
            NavigationUIVisibility="Hidden"
-           HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+           HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
 </mah:MetroWindow>
