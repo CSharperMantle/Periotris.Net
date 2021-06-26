@@ -1,0 +1,121 @@
+﻿<Page x:Class="Periotris.Net.View.GamePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:local="clr-namespace:Periotris.Net.View"
+      xmlns:viewModel="clr-namespace:Periotris.Net.ViewModel"
+      mc:Ignorable="d"
+      d:DesignWidth="800" d:DesignHeight="600"
+      HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+      Loaded="GamePage_Loaded" Unloaded="GamePage_Unloaded"
+      SizeChanged="GamePage_SizeChanged">
+    <Page.Resources>
+        <viewModel:TetrisViewModel x:Key="ViewModel" />
+        <viewModel:BoolVisibilityConverter x:Key="VisibilityConverter" />
+        <viewModel:TimeSpanStringConverter x:Key="TimeSpanConverter" />
+        <Style x:Key="GroupHeaderTextStyle" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Microsoft YaHei UI" />
+            <Setter Property="TextTrimming" Value="WordEllipsis" />
+            <Setter Property="TextWrapping" Value="NoWrap" />
+            <Setter Property="Foreground" Value="Bisque" />
+            <Setter Property="Typography.StylisticSet20" Value="True" />
+            <Setter Property="Typography.DiscretionaryLigatures" Value="True" />
+            <Setter Property="Typography.CaseSensitiveForms" Value="True" />
+            <Setter Property="FontSize" Value="26.667" />
+            <Setter Property="LineStackingStrategy" Value="BlockLineHeight" />
+            <Setter Property="FontWeight" Value="Light" />
+            <Setter Property="LineHeight" Value="30" />
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <TranslateTransform X="-1" Y="6" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    <Grid DataContext="{StaticResource ViewModel}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="1"
+                       Text="The Periodic Table of Elements"
+                       HorizontalAlignment="Center" Margin="35, 15, 0, 0"
+                       Foreground="White"
+                       FontFamily="Microsoft YaHei UI" FontSize="34" FontWeight="Bold"
+                       Visibility="{Binding Path=GameWon, Converter={StaticResource VisibilityConverter}}" />
+        </Grid>
+
+        <StackPanel Grid.Row="0"
+                    HorizontalAlignment="Right" Margin="0, 20, 30, 0">
+            <TextBlock Text="{Binding Path=ElapsedTime, Converter={StaticResource TimeSpanConverter}}"
+                       Style="{StaticResource GroupHeaderTextStyle}"
+                       Foreground="Yellow" TextAlignment="Center" FontFamily="Consolas" />
+            <TextBlock Text="{Binding Path=CurrentHighestScore, Converter={StaticResource TimeSpanConverter}}"
+                       Style="{StaticResource GroupHeaderTextStyle}"
+                       Foreground="White" TextAlignment="Center" FontFamily="Consolas" />
+        </StackPanel>
+
+        <Border x:Name="PlayArea"
+                Grid.Row="1" Margin="10"
+                Background="Black"
+                Loaded="PlayArea_Loaded">
+            <ItemsControl
+                ItemsSource="{Binding Path=Sprites}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Canvas Background="Black" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </Border>
+        <StackPanel Grid.Row="1"
+                    HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    Opacity="0.9" Background="DarkSlateGray"
+                    Visibility="{Binding Path=GameOver, Converter={StaticResource VisibilityConverter}}">
+            <TextBlock Text="Game End"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"
+                       Opacity="1" Foreground="Yellow"
+                       FontWeight="Bold" FontSize="70" FontFamily="Microsoft YaHei" />
+            <StackPanel
+                HorizontalAlignment="Center"
+                Orientation="Horizontal">
+                <Button x:Name="BeginButton"
+                        Content="Start"
+                        HorizontalAlignment="Center" Width="100" Margin="0 0 5 0"
+                        Style="{DynamicResource MahApps.Styles.Button.Flat}"
+                        Click="BeginButton_Click" />
+                <Button x:Name="BackButton"
+                        Content="Back"
+                        HorizontalAlignment="Center" Width="100" Margin="5 0 0 0"
+                        Style="{DynamicResource MahApps.Styles.Button.Flat}"
+                        Click="BackButton_Click" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center" VerticalAlignment="Center">
+                <CheckBox x:Name="ColorsCheckBox"
+                          Content="Colors"
+                          HorizontalAlignment="Center" VerticalAlignment="Center"
+                          Style="{DynamicResource MahApps.Styles.CheckBox.Win10}"
+                          IsChecked="{Binding Path=RenderColors, Mode=TwoWay}" />
+                <CheckBox x:Name="GridAssistanceCheckBox"
+                          Content="Assistance grid"
+                          HorizontalAlignment="Center" VerticalAlignment="Center"
+                          Style="{DynamicResource MahApps.Styles.CheckBox.Win10}"
+                          IsChecked="{Binding Path=RenderGridAssistance, Mode=TwoWay}" />
+            </StackPanel>
+        </StackPanel>
+
+        <TextBlock Grid.Row="1"
+                   Text="Paused"
+                   VerticalAlignment="Center" HorizontalAlignment="Stretch" TextAlignment="Center"
+                   FontFamily="Microsoft YaHei UI" FontSize="60" FontWeight="Bold" FontStyle="Normal"
+                   Foreground="Yellow" Background="DarkGray" Opacity="0.9"
+                   Visibility="{Binding Paused, Converter={StaticResource VisibilityConverter}}" />
+    </Grid>
+</Page>

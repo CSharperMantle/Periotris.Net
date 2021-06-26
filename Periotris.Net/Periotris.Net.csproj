@@ -1,0 +1,59 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <StartupObject />
+    <EnforceCodeStyleInBuild>false</EnforceCodeStyleInBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Authors>CSharperMantle</Authors>
+    <Product>Periotris</Product>
+    <PackageIcon>Icon.ico</PackageIcon>
+    <PackageIconUrl />
+    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/CSharperMantle/Periotris.Net</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/CSharperMantle/Periotris.Net.git</RepositoryUrl>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <Description>Periotris.Net is a .NET 5 porting and modernized version of CSharperMantle's Periotris game belonging to CmTetris product family.</Description>
+    <Copyright>Copyright (c) 2020-present Rong "Mantle" Bao (aka CSharperMantle)</Copyright>
+    <NeutralLanguage>en</NeutralLanguage>
+    <PackageTags>game;tetris;tetrimino;wpf;chemistry;periodic-table;tetromino-tiling;tetromino-solver;puzzle</PackageTags>
+    <SignAssembly>false</SignAssembly>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MahApps.Metro" Version="2.4.6" />
+    <PackageReference Include="MahApps.Metro.IconPacks" Version="4.8.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Icon.ico">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
