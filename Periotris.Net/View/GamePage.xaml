@@ -16,7 +16,7 @@
         <viewModel:BoolVisibilityConverter x:Key="VisibilityConverter" />
         <viewModel:TimeSpanStringConverter x:Key="TimeSpanConverter" />
         <Style x:Key="GroupHeaderTextStyle" TargetType="TextBlock">
-            <Setter Property="FontFamily" Value="Microsoft YaHei UI" />
+            <Setter Property="FontFamily" Value="Microsoft YaHei UI, Arial" />
             <Setter Property="TextTrimming" Value="WordEllipsis" />
             <Setter Property="TextWrapping" Value="NoWrap" />
             <Setter Property="Foreground" Value="Bisque" />
@@ -48,7 +48,7 @@
                        Text="The Periodic Table of Elements"
                        HorizontalAlignment="Center" Margin="35, 15, 0, 0"
                        Foreground="White"
-                       FontFamily="Microsoft YaHei UI" FontSize="34" FontWeight="Bold"
+                       FontFamily="Microsoft YaHei UI, Arial" FontSize="34" FontWeight="Bold"
                        Visibility="{Binding Path=GameWon, Converter={StaticResource VisibilityConverter}}" />
         </Grid>
 
@@ -115,7 +115,7 @@
         <TextBlock Grid.Row="1"
                    Text="Paused"
                    VerticalAlignment="Center" HorizontalAlignment="Stretch" TextAlignment="Center"
-                   FontFamily="Microsoft YaHei UI" FontSize="60" FontWeight="Bold" FontStyle="Normal"
+                   FontFamily="Microsoft YaHei UI, Arial" FontSize="60" FontWeight="Bold" FontStyle="Normal"
                    Foreground="Yellow" Background="DarkGray" Opacity="0.9"
                    Visibility="{Binding Paused, Converter={StaticResource VisibilityConverter}}" />
     </Grid>

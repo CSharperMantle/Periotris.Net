@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:Periotris.Net.View"
       xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      xmlns:p="clr-namespace:Periotris.Net.Properties"
       mc:Ignorable="d"
       d:DesignWidth="800" d:DesignHeight="600"
       Title="StartPage">
@@ -18,13 +19,13 @@
         <StackPanel Grid.Row="1"
                     VerticalAlignment="Center">
             <TextBlock
-                Text="Periotris .NET"
+                Text="{x:Static p:StartPageResources.GameTitleTextBlockText}"
                 HorizontalAlignment="Stretch" VerticalAlignment="Center"
                 FontSize="60" TextAlignment="Center" Foreground="White" FontFamily="Microsoft YaHei UI" />
         </StackPanel>
         <StackPanel Grid.Row="2">
             <Button x:Name="NormalGameButton"
-                    Content="Normal Game"
+                    Content="{x:Static p:StartPageResources.NormalGameButtonContent}"
                     HorizontalAlignment="Center"
                     FontSize="25"
                     Style="{DynamicResource MahApps.Styles.Button}"
@@ -34,6 +35,7 @@
             <Button x:Name="AboutButton"
                     HorizontalAlignment="Center" VerticalAlignment="Center"
                     Style="{DynamicResource MahApps.Styles.Button.Circle}"
+                    ToolTip="{x:Static p:StartPageResources.AboutButtonToolTip}"
                     Click="AboutButton_Click">
                 <iconPacks:PackIconModern Width="25"
                                           Height="25"

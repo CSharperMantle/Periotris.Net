@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutFlyoutHeader" xml:space="preserve">
-    <value>About</value>
+    <value>关于</value>
   </data>
   <data name="AboutFlyoutText" xml:space="preserve">
-    <value>Periotris.Net is a .NET 5 porting and modernized version of CSharperMantle's Periotris game belonging to CmTetris product family.
+    <value>Periotris.Net是对CmTetris系列项目中Periotris游戏的.NET 5移植与升级版。
 
 
 
@@ -134,12 +134,9 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 You should have received a copy of the GNU General Public License along with this program. If not, see &lt; https://github.com/CSharperMantle/Periotris.Net/blob/main/LICENSE &gt;.</value>
   </data>
   <data name="LaunchGitHubRepoButtonContent" xml:space="preserve">
-    <value>View on GitHub</value>
+    <value>在GitHub上查看</value>
   </data>
   <data name="LaunchGitHubRepoButtonToolTip" xml:space="preserve">
-    <value>Open Periotris.NET repo in browser</value>
-  </data>
-  <data name="MainWindowTitle" xml:space="preserve">
-    <value>Periotris.NET</value>
+    <value>在浏览器中访问Periotris.NET的代码仓库</value>
   </data>
 </root>

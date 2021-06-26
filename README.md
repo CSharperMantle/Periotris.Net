@@ -11,7 +11,7 @@ Please refer to the [wiki/Introduction](https://github.com/CSharperMantle/CmTetr
 
 <a rel="license" href="http://www.gnu.org/licenses/gpl-3.0.html"><img alt="GNU GPLv3" src="http://www.gnu.org/graphics/gplv3-with-text-136x68.png"></a>
 
-**Copyright (C) 2021 Rong "Mantle" Bao (CSharperMantle)**
+**Copyright (C) 2020-present Rong "Mantle" Bao (CSharperMantle)**
 
 This program is free software: you can redistribute it and/or modify it under
 the terms of the GNU General Public License as published by the Free Software

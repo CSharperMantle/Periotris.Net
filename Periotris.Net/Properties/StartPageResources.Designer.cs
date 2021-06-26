@@ -22,14 +22,14 @@ namespace Periotris.Net.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class MainWindowResources {
+    public class StartPageResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal MainWindowResources() {
+        internal StartPageResources() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Periotris.Net.Properties {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Periotris.Net.Properties.MainWindowResources", typeof(MainWindowResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Periotris.Net.Properties.StartPageResources", typeof(StartPageResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,55 +61,29 @@ namespace Periotris.Net.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to About.
+        ///   Looks up a localized string similar to About Periotris.NET.
         /// </summary>
-        public static string AboutFlyoutHeader {
+        public static string AboutButtonToolTip {
             get {
-                return ResourceManager.GetString("AboutFlyoutHeader", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Periotris.Net is a .NET 5 porting and modernized version of CSharperMantle&apos;s Periotris game belonging to CmTetris product family.
-        ///
-        ///
-        ///
-        ///Copyright (C) 2020-present Rong &quot;Mantle&quot; Bao (CSharperMantle)
-        ///
-        ///This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
-        ///
-        ///This program is distributed in the hope that it will be useful, but [rest of string was truncated]&quot;;.
-        /// </summary>
-        public static string AboutFlyoutText {
-            get {
-                return ResourceManager.GetString("AboutFlyoutText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to View on GitHub.
-        /// </summary>
-        public static string LaunchGitHubRepoButtonContent {
-            get {
-                return ResourceManager.GetString("LaunchGitHubRepoButtonContent", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Open Periotris.NET repo in browser.
-        /// </summary>
-        public static string LaunchGitHubRepoButtonToolTip {
-            get {
-                return ResourceManager.GetString("LaunchGitHubRepoButtonToolTip", resourceCulture);
+                return ResourceManager.GetString("AboutButtonToolTip", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Periotris.NET.
         /// </summary>
-        public static string MainWindowTitle {
+        public static string GameTitleTextBlockText {
             get {
-                return ResourceManager.GetString("MainWindowTitle", resourceCulture);
+                return ResourceManager.GetString("GameTitleTextBlockText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Normal Game.
+        /// </summary>
+        public static string NormalGameButtonContent {
+            get {
+                return ResourceManager.GetString("NormalGameButtonContent", resourceCulture);
             }
         }
     }

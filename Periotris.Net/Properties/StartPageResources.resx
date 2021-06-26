@@ -117,29 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AboutFlyoutHeader" xml:space="preserve">
-    <value>About</value>
+  <data name="AboutButtonToolTip" xml:space="preserve">
+    <value>About Periotris.NET</value>
   </data>
-  <data name="AboutFlyoutText" xml:space="preserve">
-    <value>Periotris.Net is a .NET 5 porting and modernized version of CSharperMantle's Periotris game belonging to CmTetris product family.
-
-
-
-Copyright (C) 2020-present Rong "Mantle" Bao (CSharperMantle)
-
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
-
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along with this program. If not, see &lt; https://github.com/CSharperMantle/Periotris.Net/blob/main/LICENSE &gt;.</value>
-  </data>
-  <data name="LaunchGitHubRepoButtonContent" xml:space="preserve">
-    <value>View on GitHub</value>
-  </data>
-  <data name="LaunchGitHubRepoButtonToolTip" xml:space="preserve">
-    <value>Open Periotris.NET repo in browser</value>
-  </data>
-  <data name="MainWindowTitle" xml:space="preserve">
+  <data name="GameTitleTextBlockText" xml:space="preserve">
     <value>Periotris.NET</value>
+  </data>
+  <data name="NormalGameButtonContent" xml:space="preserve">
+    <value>Normal Game</value>
   </data>
 </root>
