@@ -1,4 +1,4 @@
-﻿using Periotris.Common;
+﻿using Periotris.Net.Common;
 
 namespace Periotris.Net.Model
 {

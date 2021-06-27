@@ -112,5 +112,14 @@ namespace Periotris.Net.Properties {
                 return ResourceManager.GetString("MainWindowTitle", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string SettingsFlyoutHeader {
+            get {
+                return ResourceManager.GetString("SettingsFlyoutHeader", resourceCulture);
+            }
+        }
     }
 }

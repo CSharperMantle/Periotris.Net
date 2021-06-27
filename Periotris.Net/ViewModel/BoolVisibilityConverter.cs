@@ -19,8 +19,12 @@ namespace Periotris.Net.ViewModel
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            throw new NotSupportedException("Two-way binding is not supported on " +
-                                            nameof(BoolVisibilityConverter));
+            if (value is Visibility v && v == Visibility.Visible)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

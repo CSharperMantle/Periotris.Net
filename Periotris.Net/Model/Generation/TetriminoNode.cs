@@ -1,4 +1,4 @@
-﻿using Periotris.Common;
+﻿using Periotris.Net.Common;
 using System.Collections.Generic;
 
 namespace Periotris.Net.Model.Generation

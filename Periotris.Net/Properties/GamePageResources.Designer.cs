@@ -104,5 +104,14 @@ namespace Periotris.Net.Properties {
                 return ResourceManager.GetString("GridAssistanceCheckBoxContent", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Periodic Table of Elements.
+        /// </summary>
+        public static string TableTitleTextBlockText {
+            get {
+                return ResourceManager.GetString("TableTitleTextBlockText", resourceCulture);
+            }
+        }
     }
 }

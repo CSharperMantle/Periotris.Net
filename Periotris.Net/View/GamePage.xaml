@@ -45,10 +45,10 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Column="1"
-                       Text="The Periodic Table of Elements"
+                       Text="{x:Static p:GamePageResources.TableTitleTextBlockText}"
                        HorizontalAlignment="Center" Margin="35, 15, 0, 0"
                        Foreground="White"
-                       FontFamily="Microsoft YaHei UI, Arial" FontSize="34" FontWeight="Bold"
+                       FontFamily="Microsoft YaHei UI, Arial" FontSize="34" FontWeight="Regular"
                        Visibility="{Binding Path=GameWon, Converter={StaticResource VisibilityConverter}}" />
         </Grid>
 
@@ -82,7 +82,7 @@
             <TextBlock Text="{x:Static p:GamePageResources.GameEndCheckBoxContent}"
                        VerticalAlignment="Center" HorizontalAlignment="Center"
                        Opacity="1" Foreground="Yellow"
-                       FontWeight="Bold" FontSize="70" FontFamily="Microsoft YaHei" />
+                       FontWeight="Regular" FontSize="70" FontFamily="Microsoft YaHei" />
             <StackPanel
                 HorizontalAlignment="Center"
                 Orientation="Horizontal">

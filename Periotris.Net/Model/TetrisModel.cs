@@ -1,4 +1,4 @@
-﻿using Periotris.Common;
+﻿using Periotris.Net.Common;
 using Periotris.Net.Customization.History;
 using Periotris.Net.Model.Generation;
 using System;

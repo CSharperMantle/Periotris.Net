@@ -1,4 +1,4 @@
-﻿using Periotris.Common;
+﻿using Periotris.Net.Common;
 using Periotris.Net.ViewModel;
 using System;
 using System.Windows;
@@ -24,7 +24,7 @@ namespace Periotris.Net.View
             }
             else
             {
-                throw new Exception(nameof(viewModel));
+                throw new ArgumentNullException(nameof(viewModel));
             }
         }
 

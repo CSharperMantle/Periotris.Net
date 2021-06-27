@@ -6,10 +6,15 @@
                  xmlns:local="clr-namespace:Periotris.Net.View"
                  xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
                  xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      xmlns:viewModel="clr-namespace:Periotris.Net.ViewModel"
                  xmlns:p="clr-namespace:Periotris.Net.Properties"
                  mc:Ignorable="d"
                  Title="{x:Static p:MainWindowResources.MainWindowTitle}" Height="600" Width="800"
                  MinHeight="420" MinWidth="560">
+    <mah:MetroWindow.Resources>
+        <viewModel:MainWindowViewModel x:Key="ViewModel" />
+        <viewModel:BoolVisibilityConverter x:Key="VisibilityConverter" />
+    </mah:MetroWindow.Resources>
     <mah:MetroWindow.RightWindowCommands>
         <mah:WindowCommands>
             <Button Click="LaunchGitHubRepo"
@@ -32,14 +37,20 @@
         </mah:WindowCommands>
     </mah:MetroWindow.RightWindowCommands>
     <mah:MetroWindow.Flyouts>
-        <mah:FlyoutsControl>
+        <mah:FlyoutsControl DataContext="{StaticResource ViewModel}">
             <mah:Flyout x:Name="AboutFlyout" Header="{x:Static p:MainWindowResources.AboutFlyoutHeader}"
-                        Position="Right" Width="250">
+                        Position="Right" Width="300"
+                        IsOpen="{Binding Path=AboutFlyoutOpened, Mode=TwoWay}">
                 <TextBlock Text="{x:Static p:MainWindowResources.AboutFlyoutText}"
                            Margin="10 10 10 10"
                            Foreground="White"
                            FontFamily="Microsoft YaHei UI" TextWrapping="Wrap">
                 </TextBlock>
+            </mah:Flyout>
+            <mah:Flyout x:Name="SettingsFlyout" Header="{x:Static p:MainWindowResources.SettingsFlyoutHeader}"
+                        Position="Right" Width="300"
+                        IsOpen="{Binding Path=SettingsFlyoutOpened, Mode=TwoWay}">
+
             </mah:Flyout>
         </mah:FlyoutsControl>
     </mah:MetroWindow.Flyouts>

@@ -1,4 +1,4 @@
-﻿namespace Periotris.Common
+﻿namespace Periotris.Net.Common
 {
     public static class TetrisConst
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
 
-namespace Periotris.Common
+namespace Periotris.Net.Common
 {
     public struct Position : IEquatable<Position>
     {

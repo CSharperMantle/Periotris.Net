@@ -139,4 +139,7 @@ You should have received a copy of the GNU General Public License along with thi
   <data name="LaunchGitHubRepoButtonToolTip" xml:space="preserve">
     <value>在浏览器中访问Periotris.NET的代码仓库</value>
   </data>
+  <data name="SettingsFlyoutHeader" xml:space="preserve">
+    <value>设置</value>
+  </data>
 </root>

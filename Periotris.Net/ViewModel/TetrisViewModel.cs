@@ -1,4 +1,4 @@
-﻿using Periotris.Common;
+﻿using Periotris.Net.Common;
 using Periotris.Net.Model;
 using Periotris.Net.View;
 using System;
@@ -80,7 +80,7 @@ namespace Periotris.Net.ViewModel
 
         public bool RenderColors { get; set; } = true;
 
-        public bool RenderGridAssistance { get; set; } = false;
+        public bool RenderGridAssistance { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

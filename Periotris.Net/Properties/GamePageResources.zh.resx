@@ -132,4 +132,7 @@
   <data name="GridAssistanceCheckBoxContent" xml:space="preserve">
     <value>网格</value>
   </data>
+  <data name="TableTitleTextBlockText" xml:space="preserve">
+    <value>元素周期表</value>
+  </data>
 </root>

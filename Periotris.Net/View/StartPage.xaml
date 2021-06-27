@@ -31,7 +31,9 @@
                     Style="{DynamicResource MahApps.Styles.Button}"
                     Click="NormalGameButton_Click" />
         </StackPanel>
-        <StackPanel Grid.Row="3">
+        <StackPanel Grid.Row="3"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center" VerticalAlignment="Center">
             <Button x:Name="AboutButton"
                     HorizontalAlignment="Center" VerticalAlignment="Center"
                     Style="{DynamicResource MahApps.Styles.Button.Circle}"
