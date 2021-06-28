@@ -18,14 +18,8 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
-        
-    - name: Restore dependencies
-      run: dotnet restore
       
-    - name: Build
-      run: dotnet build --no-restore
-      
-    - name: Cache
+    - name: Cache dependencies
       uses: actions/cache@v2
       with:
         path: |
@@ -34,3 +28,9 @@ jobs:
         key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
         restore-keys: |
           ${{ runner.os }}-nuget-
+        
+    - name: Restore dependencies
+      run: dotnet restore
+      
+    - name: Build
+      run: dotnet build --no-restore
