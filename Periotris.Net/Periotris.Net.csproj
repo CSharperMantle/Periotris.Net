@@ -23,6 +23,7 @@
     <SignAssembly>false</SignAssembly>
     <ApplicationIcon>Icon.ico</ApplicationIcon>
     <Version>1.8.0</Version>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>
 
   <ItemGroup>
