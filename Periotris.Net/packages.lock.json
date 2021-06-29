@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "dependencies": {
+    ".NETCoreApp,Version=v5.0": {
+      "MahApps.Metro": {
+        "type": "Direct",
+        "requested": "[2.4.6, )",
+        "resolved": "2.4.6",
+        "contentHash": "4bmwsTtdATI3kkj4vnJ2fC+GNeAgSvaxS9JvbgyX9xb03qBI7+8nOltFumbHsc1rrmTYBSmHviqssmw2HrfvPw==",
+        "dependencies": {
+          "ControlzEx": "4.4.0"
+        }
+      },
+      "MahApps.Metro.IconPacks": {
+        "type": "Direct",
+        "requested": "[4.8.0, )",
+        "resolved": "4.8.0",
+        "contentHash": "G00GRXwBOzEIryBKOzbKH01SUUGMYKkIg3GQe0G/d1oZoRUJAeWN0Iw+WTs8ARU0CHzzvMAV00Z5y1mCB4pUPg=="
+      },
+      "Newtonsoft.Json": {
+        "type": "Direct",
+        "requested": "[13.0.1, )",
+        "resolved": "13.0.1",
+        "contentHash": "ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A=="
+      },
+      "ControlzEx": {
+        "type": "Transitive",
+        "resolved": "4.4.0",
+        "contentHash": "pZ5z4hYWwE4R13UMCVs6vII//nL7hz+Nwn4oJlnsZJRGqJNy6Z9KnJiTZfly6lKFu0pMc1aWBZpx+VqFTQKP1Q==",
+        "dependencies": {
+          "Microsoft.Xaml.Behaviors.Wpf": "1.1.19",
+          "System.Text.Json": "4.7.2"
+        }
+      },
+      "Microsoft.Xaml.Behaviors.Wpf": {
+        "type": "Transitive",
+        "resolved": "1.1.19",
+        "contentHash": "5sPWkbqImc2t1aQwIfJcKsUo7tOg1Tr8+6xVzZJB56Nzt4u9NlpcLofgdX/aRYpPKdWDA3U23Akw1KQzU5e82g=="
+      },
+      "System.Text.Json": {
+        "type": "Transitive",
+        "resolved": "4.7.2",
+        "contentHash": "TcMd95wcrubm9nHvJEQs70rC0H/8omiSGGpU4FQ/ZA1URIqD4pjmFJh2Mfv1yH1eHgJDWTi2hMDXwTET+zOOyg=="
+      }
+    }
+  }
+}
