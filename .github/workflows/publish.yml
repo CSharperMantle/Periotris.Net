@@ -32,15 +32,15 @@ jobs:
       run: dotnet restore
 
     - name: Publish
-      run: Batch-Publish.ps1
+      run: ${{ github.workspace }}/Batch-Publish.ps1
     
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
         files: |
-          ${{ github.workspace }}/Periotris.Net/publish/win-x64-nsc.zip
-          ${{ github.workspace }}/Periotris.Net/publish/osx-x64-nsc.zip
-          ${{ github.workspace }}/Periotris.Net/publish/win-x86-nsc.zip
-          ${{ github.workspace }}/Periotris.Net/publish/win-x64-sc.zip
+          ${{ github.workspace }}/publish/win-x64-nsc.zip
+          ${{ github.workspace }}/publish/osx-x64-nsc.zip
+          ${{ github.workspace }}/publish/win-x86-nsc.zip
+          ${{ github.workspace }}/publish/win-x64-sc.zip
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
