@@ -96,7 +96,7 @@ namespace Periotris.Net.Model
             }
 
             _pendingTetriminos.Clear();
-            TetrisConst.GameUpdateIntervalSeconds = TetrisConst.OriginalGameUpdateIntervalSeconds;
+            PeriotrisConst.GameUpdateIntervalSeconds = PeriotrisConst.OriginalGameUpdateIntervalSeconds;
             OnGameEnd();
         }
 
@@ -268,7 +268,7 @@ namespace Periotris.Net.Model
         /// </summary>
         private void FreezeActiveTetrimino()
         {
-            TetrisConst.GameUpdateIntervalSeconds -= TetrisConst.TimeDecreaseDeltaSeconds;
+            PeriotrisConst.GameUpdateIntervalSeconds -= PeriotrisConst.TimeDecreaseDeltaSeconds;
             foreach (Block block in _activeTetrimino.Blocks)
             {
                 _frozenBlocks.Add(block);
@@ -284,12 +284,12 @@ namespace Periotris.Net.Model
         private bool CheckBlockCollision(Block block)
         {
             // Left or right border collision
-            if (block.Position.X < 0 || block.Position.X >= TetrisConst.PlayAreaWidth)
+            if (block.Position.X < 0 || block.Position.X >= PeriotrisConst.PlayAreaWidth)
             {
                 return true;
             }
             // Bottom border collision
-            if (block.Position.Y >= TetrisConst.PlayAreaHeight)
+            if (block.Position.Y >= PeriotrisConst.PlayAreaHeight)
             {
                 return true;
             }

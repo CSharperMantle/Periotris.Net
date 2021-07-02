@@ -451,7 +451,7 @@ namespace Periotris.Net.Model.Generation
 
         public static Position GetInitialPositionByKind(TetriminoKind kind)
         {
-            var length = kind switch
+            int length = kind switch
             {
                 TetriminoKind.Linear => 4,
                 TetriminoKind.Cubic => 2,
@@ -459,7 +459,7 @@ namespace Periotris.Net.Model.Generation
                 _ => throw new ArgumentException(null, nameof(kind)),
             };
             int row = 0;
-            int column = (TetrisConst.PlayAreaWidth - length) / 2;
+            int column = (PeriotrisConst.PlayAreaWidth - length) / 2;
             return new Position(column, row);
         }
 

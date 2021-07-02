@@ -48,8 +48,7 @@ namespace Periotris.Net.Customization.History
         {
             JsonSerializer jsonSerializer = new();
 
-            using (FileStream outStream =
-                !File.Exists(TetrisConst.HistoryFilePath) ? File.Create(TetrisConst.HistoryFilePath) : File.OpenWrite(TetrisConst.HistoryFilePath))
+            using (FileStream outStream = FileIO.OpenDataFile(PeriotrisConst.HistoryFilePath))
             using (StreamWriter sw = new(outStream))
             using (JsonTextWriter writer = new(sw))
             {
@@ -59,14 +58,14 @@ namespace Periotris.Net.Customization.History
 
         public static History ReadFromFile()
         {
-            if (!File.Exists(TetrisConst.HistoryFilePath))
+            if (!File.Exists(PeriotrisConst.HistoryFilePath))
             {
                 return new History();
             }
 
             JsonSerializer jsonSerializer = new();
 
-            using (FileStream inStream = File.OpenRead(TetrisConst.HistoryFilePath))
+            using (FileStream inStream = FileIO.OpenDataFile(PeriotrisConst.HistoryFilePath))
             using (StreamReader sr = new(inStream))
             using (JsonTextReader reader = new(sr))
             {

@@ -1,6 +1,8 @@
-﻿namespace Periotris.Net.Common
+﻿using System;
+
+namespace Periotris.Net.Common
 {
-    public static class TetrisConst
+    public static class PeriotrisConst
     {
         public const int PlayAreaWidth = 18;
 
@@ -20,5 +22,7 @@
         public static double GameUpdateIntervalSeconds = OriginalGameUpdateIntervalSeconds;
 
         public static readonly string HistoryFilePath = "history.json";
+
+        public static readonly string PeriotrisGameDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/Periotris.Net/";
     }
 }

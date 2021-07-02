@@ -39,10 +39,10 @@ namespace Periotris.Net.ViewModel
             _model.BlockChanged += ModelBlockChangedEventHandler;
             _model.GameEnd += ModelGameEndEventListener;
 
-            _gameTimer.Interval = TimeSpan.FromSeconds(TetrisConst.GameUpdateIntervalSeconds);
+            _gameTimer.Interval = TimeSpan.FromSeconds(PeriotrisConst.GameUpdateIntervalSeconds);
             _gameTimer.Tick += GameUpdateTimerTickEventHandler;
 
-            _timeDisplayRefreshTimer.Interval = TimeSpan.FromSeconds(TetrisConst.TimeDisplayUpdateIntervalSeconds);
+            _timeDisplayRefreshTimer.Interval = TimeSpan.FromSeconds(PeriotrisConst.TimeDisplayUpdateIntervalSeconds);
             _timeDisplayRefreshTimer.Tick += TimeDisplayTimerTickEventHandler;
 
             EndGame();
@@ -60,7 +60,7 @@ namespace Periotris.Net.ViewModel
         {
             set
             {
-                Scale = value.Width / TetrisConst.PlayAreaWidth;
+                Scale = value.Width / PeriotrisConst.PlayAreaWidth;
                 _model.UpdateAllBlocks();
                 RecreateAssistGrids();
             }
@@ -183,18 +183,18 @@ namespace Periotris.Net.ViewModel
                 return;
             }
 
-            for (int x = 0; x < TetrisConst.PlayAreaWidth; x++)
+            for (int x = 0; x < PeriotrisConst.PlayAreaWidth; x++)
             {
                 FrameworkElement scanLine = TetrisControlHelper.VerticalAssistGridLineFactory(
-                    x, TetrisConst.PlayAreaHeight, Scale);
+                    x, PeriotrisConst.PlayAreaHeight, Scale);
                 _assistGridLines.Add(scanLine);
                 _sprites.Add(scanLine);
             }
 
-            for (int y = 0; y < TetrisConst.PlayAreaHeight; y++)
+            for (int y = 0; y < PeriotrisConst.PlayAreaHeight; y++)
             {
                 FrameworkElement scanLine = TetrisControlHelper.HorizontalAssistGridLineFactory(
-                    y, TetrisConst.PlayAreaWidth, Scale);
+                    y, PeriotrisConst.PlayAreaWidth, Scale);
                 _assistGridLines.Add(scanLine);
                 _sprites.Add(scanLine);
             }
@@ -247,7 +247,7 @@ namespace Periotris.Net.ViewModel
                 _model.Update();
             }
             // Update interval
-            _gameTimer.Interval = TimeSpan.FromSeconds(TetrisConst.GameUpdateIntervalSeconds);
+            _gameTimer.Interval = TimeSpan.FromSeconds(PeriotrisConst.GameUpdateIntervalSeconds);
         }
 
         private void TimeDisplayTimerTickEventHandler(object sender, EventArgs e)

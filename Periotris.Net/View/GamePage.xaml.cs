@@ -54,12 +54,12 @@ namespace Periotris.Net.View
             double targetHeight;
             if (newSize.Width > newSize.Height)
             {
-                targetWidth = newSize.Height * (TetrisConst.PlayAreaWidth / (double)TetrisConst.PlayAreaHeight);
+                targetWidth = newSize.Height * (PeriotrisConst.PlayAreaWidth / (double)PeriotrisConst.PlayAreaHeight);
                 targetHeight = newSize.Height;
             }
             else
             {
-                targetHeight = newSize.Width * (TetrisConst.PlayAreaHeight / (double)TetrisConst.PlayAreaWidth);
+                targetHeight = newSize.Width * (PeriotrisConst.PlayAreaHeight / (double)PeriotrisConst.PlayAreaWidth);
                 targetWidth = newSize.Width;
             }
 

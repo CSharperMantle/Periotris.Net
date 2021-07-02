@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Windows;
 
 namespace Periotris.Net.Customization.Element
 {
@@ -24,13 +23,26 @@ namespace Periotris.Net.Customization.Element
 
         private ElementInfoManager()
         {
-            ReloadPeriodicTable();
+            DataFilePath = PeriotrisConst.PeriodicTableJsonFileName;
         }
 
         /// <summary>
         ///     Get the instance of <see cref="ElementInfoManager" />.
         /// </summary>
         public static ElementInfoManager Instance => instance.Value;
+
+        private string dataFilePath = string.Empty;
+
+        public string DataFilePath
+        {
+            get => dataFilePath;
+            set
+            {
+                ReloadPeriodicTable(value);
+                dataFilePath = value;
+            }
+        }
+
 
         /// <summary>
         ///     Obtain a <see cref="ElementInfo" /> by atomic number.
@@ -85,23 +97,13 @@ namespace Periotris.Net.Customization.Element
         /// </summary>
         /// <param name="pathOrUri">Path to periodic table in JSON format.</param>
         /// <param name="uriKind">Kind of the path.</param>
-        public void ReloadPeriodicTable(string pathOrUri = TetrisConst.PeriodicTableJsonFileName,
-            UriKind uriKind = UriKind.RelativeOrAbsolute)
+        private void ReloadPeriodicTable(string pathOrUri)
         {
             // Purge cache.
             _cacheElementInfo.Clear();
 
-            // Read.
-            Uri uri = new(pathOrUri, uriKind);
-
-            System.Windows.Resources.StreamResourceInfo resource = Application.GetResourceStream(uri);
-            if (resource == null)
-            {
-                throw new Exception(nameof(resource));
-            }
-
-            using (Stream resourceStream = resource.Stream)
-            using (StreamReader reader = new(resourceStream))
+            using (Stream stream = FileIO.OpenResourceStream(pathOrUri))
+            using (StreamReader reader = new(stream))
             {
                 string content = reader.ReadToEnd();
                 _periodicTableRoot = JObject.Parse(content);

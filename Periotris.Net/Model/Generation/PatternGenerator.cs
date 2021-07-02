@@ -162,7 +162,7 @@ namespace Periotris.Net.Model.Generation
                 // Anyway, we need to obtain a new TetriminoKind and test over all
                 // possible directions.
                 bool solutionFound = false;
-                while (currentTetriminoKindDirectionsPairStack.Count > 0)
+                while (currentTetriminoKindDirectionsPairStack?.Count > 0)
                 {
                     KindDirectionsPair currentPair = currentTetriminoKindDirectionsPairStack.Pop();
                     while (currentPair.PendingDirections.Count > 0)
