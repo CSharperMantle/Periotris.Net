@@ -41,7 +41,17 @@ namespace Periotris.Net.View
 
         private void LaunchGitHubRepo(object sender, RoutedEventArgs eventArgs)
         {
-            Process.Start("https://github.com/CSharperMantle/Periotris.Net");
+            _ = OpenUrl("https://github.com/CSharperMantle/Periotris.Net");
+        }
+
+        private Process OpenUrl(string url)
+        {
+            ProcessStartInfo info = new()
+            {
+                FileName = url,
+                UseShellExecute = true
+            };
+            return Process.Start(info);
         }
     }
 }
