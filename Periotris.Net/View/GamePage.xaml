@@ -112,8 +112,8 @@
             </StackPanel>
         </StackPanel>
 
-        <TextBlock Grid.Row="1"
-                   Text="Paused"
+        <TextBlock x:Name="PausedTextBlock" Grid.Row="1"
+                   Text="{x:Static p:GamePageResources.PausedTextBlockText}"
                    VerticalAlignment="Center" HorizontalAlignment="Stretch" TextAlignment="Center"
                    FontFamily="Microsoft YaHei UI, Arial" FontSize="60" FontWeight="Bold" FontStyle="Normal"
                    Foreground="Yellow" Background="DarkGray" Opacity="0.9"

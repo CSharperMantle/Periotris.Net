@@ -106,6 +106,15 @@ namespace Periotris.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Paused.
+        /// </summary>
+        public static string PausedTextBlockText {
+            get {
+                return ResourceManager.GetString("PausedTextBlockText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The Periodic Table of Elements.
         /// </summary>
         public static string TableTitleTextBlockText {

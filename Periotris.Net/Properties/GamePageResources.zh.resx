@@ -132,7 +132,10 @@
   <data name="GridAssistanceCheckBoxContent" xml:space="preserve">
     <value>网格</value>
   </data>
+  <data name="PausedTextBlockText" xml:space="preserve">
+    <value>已暂停</value>
+  </data>
   <data name="TableTitleTextBlockText" xml:space="preserve">
-    <value>元素周期表</value>
+    <value>化学元素周期表</value>
   </data>
 </root>

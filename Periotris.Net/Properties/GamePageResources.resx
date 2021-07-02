@@ -132,6 +132,9 @@
   <data name="GridAssistanceCheckBoxContent" xml:space="preserve">
     <value>Grid</value>
   </data>
+  <data name="PausedTextBlockText" xml:space="preserve">
+    <value>Paused</value>
+  </data>
   <data name="TableTitleTextBlockText" xml:space="preserve">
     <value>The Periodic Table of Elements</value>
   </data>
