@@ -1,4 +1,4 @@
-name: Publish
+name: PR Style Checker
 
 on:
   pull_request:
@@ -20,12 +20,12 @@ jobs:
           template: |-
             Thank you for your contribution attempt in this repository!
 
-            Unfortunately, this pull request doesn't meet our standards by reason we stated below. Please create another pull request that meets our standards in the future.
+            Unfortunately, this pull request doesn't meet our standards defined in CONTRIBUTING.md.
           strict: true
           label: non-conventional
           allowed_types: 'build,chore,ci,docs,feat,fix,perf,refactor,style,test,other'
           allowed_scopes: ''
           check_draft: false
           maximum_file_change: 0
-          link_issue: false
+          link_issue: true
           ignore_bot: true

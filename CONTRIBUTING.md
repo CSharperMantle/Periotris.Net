@@ -38,6 +38,10 @@ Add any other context about the problem here.
 
 Patches MUST be submitted as [pull requests](https://github.com/CSharperMantle/Periotris.Net/pulls).
 
-Your pull request MUST meet the following rules before it is accepted:
-1. It MUST be able to pass all related [GitHub Actions](https://github.com/CSharperMantle/Periotris.Net/actions) checks, and
-2. its commits SHOULD comply with [Convenctional Commits v1.0.0](https://www.conventionalcommits.org/en/v1.0.0/) rules.
+Your pull request MUST meet the following rules before it can be accepted:
+
+* A pull request MUST contain a body.
+* A pull request MUST be linked one or more issues. If there are no issues stating the problem the pull request is to fix, please open a issue before submitting a pull request.
+* Commits in a pull request MUST comply with [Convenctional Commits v1.0.0](https://www.conventionalcommits.org/en/v1.0.0/) rules, with the following constraints:
+    * The `type` field MUST contain one of the following nouns: `build, chore, ci, docs, feat, fix, perf, refactor, style, test, other`.
+* A pull request SHOULD be able to pass all related CI pipelines, also known as 'checks'.
