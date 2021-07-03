@@ -8,7 +8,7 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 Bug reports and feature requests are hosted on [GitHub Issues](https://github.com/CSharperMantle/Periotris.Net/issues). You SHOULD use the Markdown template below for bug reports.
 
-```md
+```markdown
 ## 1. Description
 A clear and concise description of what the bug is.
 
