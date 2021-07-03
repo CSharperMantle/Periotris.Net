@@ -5,27 +5,26 @@ on:
     types: [ opened, reopened, ready_for_review ]
 
 jobs:
-  build:
-
+  conventional-pr:
     runs-on: ubuntu-20.04
 
     steps:
     - uses: actions/checkout@v2
     
     - name: Run conventional-pr checker
-        uses: Namchee/conventional-pr@v0.4.1
-        with:
-          access_token: ${{ secrets.GITHUB_TOKEN }}
-          close: true
-          template: |-
-            Thank you for your contribution attempt in this repository!
+      uses: Namchee/conventional-pr@v0.4.1
+      with:
+        access_token: ${{ secrets.GITHUB_TOKEN }}
+        close: true
+        template: |-
+          Thank you for your contribution attempt in this repository!
 
-            Unfortunately, this pull request doesn't meet our standards defined in CONTRIBUTING.md.
-          strict: true
-          label: non-conventional
-          allowed_types: 'build,chore,ci,docs,feat,fix,perf,refactor,style,test,other'
-          allowed_scopes: ''
-          check_draft: false
-          maximum_file_change: 0
-          link_issue: true
-          ignore_bot: true
+          Unfortunately, this pull request doesn't meet our standards defined in CONTRIBUTING.md.
+        strict: true
+        label: non-conventional
+        allowed_types: 'build,chore,ci,docs,feat,fix,perf,refactor,style,test,other'
+        allowed_scopes: ''
+        check_draft: false
+        maximum_file_change: 0
+        link_issue: true
+        ignore_bot: true
