@@ -126,4 +126,7 @@
   <data name="NormalGameButtonContent" xml:space="preserve">
     <value>Normal Game</value>
   </data>
+  <data name="SettingsButtonToolTip" xml:space="preserve">
+    <value>Game settings</value>
+  </data>
 </root>

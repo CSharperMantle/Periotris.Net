@@ -86,5 +86,14 @@ namespace Periotris.Net.Properties {
                 return ResourceManager.GetString("NormalGameButtonContent", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game settings.
+        /// </summary>
+        public static string SettingsButtonToolTip {
+            get {
+                return ResourceManager.GetString("SettingsButtonToolTip", resourceCulture);
+            }
+        }
     }
 }

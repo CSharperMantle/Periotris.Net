@@ -39,6 +39,11 @@ namespace Periotris.Net.View
             _viewModel.SwitchAboutFlyout();
         }
 
+        public void SwitchSettingsFlyout()
+        {
+            _viewModel.SwitchSettingsFlyout();
+        }
+
         private void LaunchGitHubRepo(object sender, RoutedEventArgs eventArgs)
         {
             _ = OpenUrl("https://github.com/CSharperMantle/Periotris.Net");

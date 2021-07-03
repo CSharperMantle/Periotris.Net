@@ -25,5 +25,13 @@ namespace Periotris.Net.View
                 mainWindow.SwitchAboutFlyout();
             }
         }
+
+        private void SettingsButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (Application.Current.MainWindow is MainWindow mainWindow)
+            {
+                mainWindow.SwitchSettingsFlyout();
+            }
+        }
     }
 }

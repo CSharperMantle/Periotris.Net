@@ -50,7 +50,9 @@
             <mah:Flyout x:Name="SettingsFlyout" Header="{x:Static p:MainWindowResources.SettingsFlyoutHeader}"
                         Position="Right" Width="300"
                         IsOpen="{Binding Path=SettingsFlyoutOpened, Mode=TwoWay}">
-
+                <StackPanel Orientation="Vertical">
+                    
+                </StackPanel>
             </mah:Flyout>
         </mah:FlyoutsControl>
     </mah:MetroWindow.Flyouts>

@@ -34,8 +34,19 @@
         <StackPanel Grid.Row="3"
                     Orientation="Horizontal"
                     HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button x:Name="SettingsButton"
+                    HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10 0 10 0"
+                    Style="{DynamicResource MahApps.Styles.Button.Circle}"
+                    ToolTip="{x:Static p:StartPageResources.SettingsButtonToolTip}"
+                    Click="SettingsButton_Click">
+                <iconPacks:PackIconModern Width="25"
+                                          Height="25"
+                                          Margin="5 5 5 5"
+                                          VerticalAlignment="Center" HorizontalAlignment="Center"
+                                          Kind="Settings" />
+            </Button>
             <Button x:Name="AboutButton"
-                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10 0 10 0"
                     Style="{DynamicResource MahApps.Styles.Button.Circle}"
                     ToolTip="{x:Static p:StartPageResources.AboutButtonToolTip}"
                     Click="AboutButton_Click">
@@ -46,5 +57,6 @@
                                           Kind="Information" />
             </Button>
         </StackPanel>
+        
     </Grid>
 </Page>

@@ -7,6 +7,9 @@ Periotris.Net is a .NET 5 porting and modernized version of CSharperMantle's Per
 ## Documentation
 Please refer to the [wiki/Introduction](https://github.com/CSharperMantle/CmTetris/wiki/Introduction) when the Periotris.Net docs are under construction.
 
+## Contributing
+Please refer to [CONTRIBUTING.md](CONTRIBUTING.md) for details.
+
 ## License
 
 <a rel="license" href="http://www.gnu.org/licenses/gpl-3.0.html"><img alt="GNU GPLv3" src="http://www.gnu.org/graphics/gplv3-with-text-136x68.png"></a>
