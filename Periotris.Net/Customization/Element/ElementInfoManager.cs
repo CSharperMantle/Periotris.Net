@@ -102,12 +102,10 @@ namespace Periotris.Net.Customization.Element
             // Purge cache.
             _cacheElementInfo.Clear();
 
-            using (Stream stream = FileIO.OpenResourceStream(pathOrUri))
-            using (StreamReader reader = new(stream))
-            {
-                string content = reader.ReadToEnd();
-                _periodicTableRoot = JObject.Parse(content);
-            }
+            using Stream stream = FileIO.OpenResourceStream(pathOrUri);
+            using StreamReader reader = new(stream);
+            string content = reader.ReadToEnd();
+            _periodicTableRoot = JObject.Parse(content);
         }
     }
 }

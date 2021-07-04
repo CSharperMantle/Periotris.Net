@@ -21,7 +21,9 @@ namespace Periotris.Net.Common
         /// </summary>
         public static double GameUpdateIntervalSeconds = OriginalGameUpdateIntervalSeconds;
 
-        public static readonly string HistoryFilePath = "history.json";
+        public const string HistoryFileName = "history.json";
+
+        public const string SettingsFileName = "settings.json";
 
         public static readonly string PeriotrisGameDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/Periotris.Net/";
     }

@@ -1,5 +1,6 @@
 ﻿using Periotris.Net.Common;
 using Periotris.Net.Customization.History;
+using Periotris.Net.Customization.Settings;
 using Periotris.Net.Model.Generation;
 using System;
 using System.Collections.Generic;
@@ -50,6 +51,11 @@ namespace Periotris.Net.Model
         private Tetrimino _activeTetrimino;
 
         /// <summary>
+        /// Game settings manager.
+        /// </summary>
+        private SettingsManager _settingsManager = SettingsManager.Instance;
+
+        /// <summary>
         ///     Construct a new <see cref="TetrisModel" /> whose game is initially ended.
         /// </summary>
         public TetrisModel()
@@ -80,6 +86,12 @@ namespace Periotris.Net.Model
         public bool NewHighScore { get; private set; }
 
         public TimeSpan? CurrentHighestScore => _history.FastestRecord;
+
+        public Settings Settings
+        {
+            get => _settingsManager.Settings;
+            set => _settingsManager.Settings = value;
+        }
 
         /// <summary>
         ///     End the current game.

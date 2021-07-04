@@ -103,12 +103,12 @@
                           Content="{x:Static p:GamePageResources.ColorsCheckBoxContent}"
                           HorizontalAlignment="Center" VerticalAlignment="Center"
                           Style="{DynamicResource MahApps.Styles.CheckBox.Win10}"
-                          IsChecked="{Binding Path=RenderColors, Mode=TwoWay}" />
+                          IsChecked="{Binding Path=ShouldRenderColors, Mode=TwoWay}" />
                 <CheckBox x:Name="GridAssistanceCheckBox"
                           Content="{x:Static p:GamePageResources.GridAssistanceCheckBoxContent}"
                           HorizontalAlignment="Center" VerticalAlignment="Center"
                           Style="{DynamicResource MahApps.Styles.CheckBox.Win10}"
-                          IsChecked="{Binding Path=RenderGridAssistance, Mode=TwoWay}" />
+                          IsChecked="{Binding Path=ShouldRenderGridAssistance, Mode=TwoWay}" />
             </StackPanel>
         </StackPanel>
 

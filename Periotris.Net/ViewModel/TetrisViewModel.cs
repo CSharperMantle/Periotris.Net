@@ -1,4 +1,5 @@
 ﻿using Periotris.Net.Common;
+using Periotris.Net.Customization.Settings;
 using Periotris.Net.Model;
 using Periotris.Net.View;
 using System;
@@ -78,9 +79,27 @@ namespace Periotris.Net.ViewModel
 
         public bool Paused { get; set; }
 
-        public bool RenderColors { get; set; } = true;
+        public bool ShouldRenderColors
+        {
+            get => _model.Settings.ShouldRenderColors;
+            set
+            {
+                Settings clone = _model.Settings;
+                clone.ShouldRenderColors = value;
+                _model.Settings = clone;
+            }
+        }
 
-        public bool RenderGridAssistance { get; set; }
+        public bool ShouldRenderGridAssistance
+        {
+            get => _model.Settings.ShouldRenderGridAssistance;
+            set
+            {
+                Settings clone = _model.Settings;
+                clone.ShouldRenderGridAssistance = value;
+                _model.Settings = clone;
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -178,7 +197,7 @@ namespace Periotris.Net.ViewModel
             }
 
             _assistGridLines.Clear();
-            if (!RenderGridAssistance)
+            if (!ShouldRenderGridAssistance)
             {
                 return;
             }
@@ -214,7 +233,7 @@ namespace Periotris.Net.ViewModel
                 {
                     // Create a new BlockControl.
                     FrameworkElement blockControl =
-                        TetrisControlHelper.AnnotatedBlockControlFactory(e.BlockUpdated, RenderColors, Scale);
+                        TetrisControlHelper.AnnotatedBlockControlFactory(e.BlockUpdated, ShouldRenderColors, Scale);
                     _blocksByPosition.Add(e.BlockUpdated.Position, blockControl);
                     _sprites.Add(blockControl);
                 }

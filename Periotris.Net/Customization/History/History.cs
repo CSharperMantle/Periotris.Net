@@ -48,29 +48,25 @@ namespace Periotris.Net.Customization.History
         {
             JsonSerializer jsonSerializer = new();
 
-            using (FileStream outStream = FileIO.OpenDataFile(PeriotrisConst.HistoryFilePath))
-            using (StreamWriter sw = new(outStream))
-            using (JsonTextWriter writer = new(sw))
-            {
-                jsonSerializer.Serialize(writer, history);
-            }
+            using FileStream outStream = FileIO.OpenDataFile(PeriotrisConst.HistoryFileName);
+            using StreamWriter sw = new(outStream);
+            using JsonTextWriter writer = new(sw);
+            jsonSerializer.Serialize(writer, history);
         }
 
         public static History ReadFromFile()
         {
-            if (!File.Exists(PeriotrisConst.HistoryFilePath))
+            if (!File.Exists(PeriotrisConst.HistoryFileName))
             {
                 return new History();
             }
 
             JsonSerializer jsonSerializer = new();
 
-            using (FileStream inStream = FileIO.OpenDataFile(PeriotrisConst.HistoryFilePath))
-            using (StreamReader sr = new(inStream))
-            using (JsonTextReader reader = new(sr))
-            {
-                return jsonSerializer.Deserialize<History>(reader);
-            }
+            using FileStream inStream = FileIO.OpenDataFile(PeriotrisConst.HistoryFileName);
+            using StreamReader sr = new(inStream);
+            using JsonTextReader reader = new(sr);
+            return jsonSerializer.Deserialize<History>(reader);
         }
     }
 }
