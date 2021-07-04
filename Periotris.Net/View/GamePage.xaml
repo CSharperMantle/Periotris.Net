@@ -115,7 +115,7 @@
         <TextBlock x:Name="PausedTextBlock" Grid.Row="1"
                    Text="{x:Static p:GamePageResources.PausedTextBlockText}"
                    VerticalAlignment="Center" HorizontalAlignment="Stretch" TextAlignment="Center"
-                   FontFamily="Microsoft YaHei UI, Arial" FontSize="60" FontWeight="Bold" FontStyle="Normal"
+                   FontFamily="Microsoft YaHei UI, Arial" FontSize="60" FontWeight="Regular" FontStyle="Normal"
                    Foreground="Yellow" Background="DarkGray" Opacity="0.9"
                    Visibility="{Binding Paused, Converter={StaticResource VisibilityConverter}}" />
     </Grid>
