@@ -12,13 +12,13 @@ namespace Periotris.Net.View
     /// </summary>
     public partial class GamePage : Page
     {
-        private readonly TetrisViewModel _viewModel;
+        private readonly PeriotrisViewModel _viewModel;
 
         public GamePage()
         {
             InitializeComponent();
 
-            if (Resources["ViewModel"] is TetrisViewModel viewModel)
+            if (Resources["ViewModel"] is PeriotrisViewModel viewModel)
             {
                 _viewModel = viewModel;
             }

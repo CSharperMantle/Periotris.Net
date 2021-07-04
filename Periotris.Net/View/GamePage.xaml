@@ -12,7 +12,7 @@
       Loaded="GamePage_Loaded" Unloaded="GamePage_Unloaded"
       SizeChanged="GamePage_SizeChanged">
     <Page.Resources>
-        <viewModel:TetrisViewModel x:Key="ViewModel" />
+        <viewModel:PeriotrisViewModel x:Key="ViewModel" />
         <viewModel:BoolVisibilityConverter x:Key="VisibilityConverter" />
         <viewModel:TimeSpanStringConverter x:Key="TimeSpanConverter" />
         <Style x:Key="GroupHeaderTextStyle" TargetType="TextBlock">

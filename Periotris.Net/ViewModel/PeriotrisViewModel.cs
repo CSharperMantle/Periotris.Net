@@ -14,7 +14,7 @@ using System.Windows.Threading;
 
 namespace Periotris.Net.ViewModel
 {
-    public class TetrisViewModel : INotifyPropertyChanged
+    public class PeriotrisViewModel : INotifyPropertyChanged
     {
         private readonly List<FrameworkElement> _assistGridLines =
             new();
@@ -24,7 +24,7 @@ namespace Periotris.Net.ViewModel
 
         private readonly DispatcherTimer _gameTimer = new();
 
-        private readonly TetrisModel _model = new();
+        private readonly PeriotrisModel _model = new();
 
         private readonly ObservableCollection<FrameworkElement> _sprites =
             new();
@@ -33,7 +33,7 @@ namespace Periotris.Net.ViewModel
 
         private bool _lastPaused = true;
 
-        public TetrisViewModel()
+        public PeriotrisViewModel()
         {
             Scale = 1;
 
@@ -104,7 +104,7 @@ namespace Periotris.Net.ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
-        ///     Start the underlying game in <see cref="TetrisModel" />.
+        ///     Start the underlying game in <see cref="PeriotrisModel" />.
         /// </summary>
         public void StartGame()
         {

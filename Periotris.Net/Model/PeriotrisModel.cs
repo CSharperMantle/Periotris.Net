@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace Periotris.Net.Model
 {
-    public class TetrisModel
+    public class PeriotrisModel
     {
         /// <summary>
         ///     "Frozen" or inactive blocks. They can not be moved by user.
@@ -56,9 +56,9 @@ namespace Periotris.Net.Model
         private SettingsManager _settingsManager = SettingsManager.Instance;
 
         /// <summary>
-        ///     Construct a new <see cref="TetrisModel" /> whose game is initially ended.
+        ///     Construct a new <see cref="PeriotrisModel" /> whose game is initially ended.
         /// </summary>
-        public TetrisModel()
+        public PeriotrisModel()
         {
             _history = History.ReadFromFile();
             EndGame(false);
