@@ -7,6 +7,7 @@
       xmlns:viewModel="clr-namespace:Periotris.Net.ViewModel"
       xmlns:p="clr-namespace:Periotris.Net.Properties"
       mc:Ignorable="d"
+      d:DataContext="{d:DesignInstance Type=viewModel:PeriotrisViewModel}"
       d:DesignWidth="800" d:DesignHeight="600"
       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
       Loaded="GamePage_Loaded" Unloaded="GamePage_Unloaded"

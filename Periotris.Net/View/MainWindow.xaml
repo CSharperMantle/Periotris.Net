@@ -9,6 +9,7 @@
       xmlns:viewModel="clr-namespace:Periotris.Net.ViewModel"
                  xmlns:p="clr-namespace:Periotris.Net.Properties"
                  mc:Ignorable="d"
+                 d:DataContext="{d:DesignInstance Type=viewModel:MainWindowViewModel}"
                  Title="{x:Static p:MainWindowResources.MainWindowTitle}" Height="600" Width="800"
                  MinHeight="420" MinWidth="560">
     <mah:MetroWindow.Resources>
