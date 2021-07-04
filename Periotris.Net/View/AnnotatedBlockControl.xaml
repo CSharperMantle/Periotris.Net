@@ -12,8 +12,12 @@
              BorderBrush="Black" BorderThickness="0.5">
     <Viewbox Stretch="Uniform">
         <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <TextBlock x:Name="ElementNameTextBlock" Text="El" VerticalAlignment="Center" Margin="5 5 5 5"
-                    HorizontalAlignment="Center" />
+            <TextBlock x:Name="ElementNameTextBlock"
+                       Text="El"
+                       FontFamily="Noto Sans"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Margin="4 4 4 4"/>
         </Grid>
     </Viewbox>
 </UserControl>

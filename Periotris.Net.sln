@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31410.357
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Periotris.Net", "Periotris.Net\Periotris.Net.csproj", "{BA613E8D-E3D6-4290-AB50-1AE716C2D3F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Periotris.Net", "Periotris.Net\Periotris.Net.csproj", "{BA613E8D-E3D6-4290-AB50-1AE716C2D3F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
