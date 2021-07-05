@@ -23,7 +23,7 @@ namespace Periotris.Net.Customization.Element
 
         private ElementInfoManager()
         {
-            DataFilePath = PeriotrisConst.PeriodicTableJsonFileName;
+            SetDataFilePath(PeriotrisConst.PeriodicTableJsonFileName, PathType.Resource);
         }
 
         /// <summary>
@@ -33,14 +33,24 @@ namespace Periotris.Net.Customization.Element
 
         private string dataFilePath = string.Empty;
 
-        public string DataFilePath
+        /// <summary>
+        ///     Set the data file path. The method will purge the cache when necessary.
+        /// </summary>
+        /// <param name="value">The new value.</param>
+        /// <param name="pathType">Kind of the path.</param>
+        public void SetDataFilePath(string value, PathType pathType)
         {
-            get => dataFilePath;
-            set
-            {
-                ReloadPeriodicTable(value);
-                dataFilePath = value;
-            }
+            ReloadPeriodicTable(value, pathType);
+            dataFilePath = value;
+        }
+
+        /// <summary>
+        /// Get the current data file path.
+        /// </summary>
+        /// <returns>The current data file path.</returns>
+        public string GetDataFilePath()
+        {
+            return dataFilePath;
         }
 
 
@@ -96,13 +106,13 @@ namespace Periotris.Net.Customization.Element
         ///     Reload the periodic table from a given path.
         /// </summary>
         /// <param name="pathOrUri">Path to periodic table in JSON format.</param>
-        /// <param name="uriKind">Kind of the path.</param>
-        private void ReloadPeriodicTable(string pathOrUri)
+        /// <param name="pathType">Kind of the path.</param>
+        private void ReloadPeriodicTable(string pathOrUri, PathType pathType)
         {
             // Purge cache.
             _cacheElementInfo.Clear();
 
-            using Stream stream = FileIO.OpenResourceStream(pathOrUri);
+            using Stream stream = FileIO.OpenStreamByType(pathOrUri, pathType);
             using StreamReader reader = new(stream);
             string content = reader.ReadToEnd();
             _periodicTableRoot = JObject.Parse(content);

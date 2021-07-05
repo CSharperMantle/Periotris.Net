@@ -48,7 +48,7 @@ namespace Periotris.Net.Customization.History
         {
             JsonSerializer jsonSerializer = new();
 
-            using FileStream outStream = FileIO.OpenDataFile(PeriotrisConst.HistoryFileName);
+            using Stream outStream = FileIO.OpenStreamByType(PeriotrisConst.HistoryFileName, PathType.Data);
             using StreamWriter sw = new(outStream);
             using JsonTextWriter writer = new(sw);
             jsonSerializer.Serialize(writer, history);
@@ -63,7 +63,7 @@ namespace Periotris.Net.Customization.History
 
             JsonSerializer jsonSerializer = new();
 
-            using FileStream inStream = FileIO.OpenDataFile(PeriotrisConst.HistoryFileName);
+            using Stream inStream = FileIO.OpenStreamByType(PeriotrisConst.HistoryFileName, PathType.Data);
             using StreamReader sr = new(inStream);
             using JsonTextReader reader = new(sr);
             return jsonSerializer.Deserialize<History>(reader);

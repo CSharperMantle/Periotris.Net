@@ -4,6 +4,9 @@ using System.Runtime.Serialization;
 
 namespace Periotris.Net.Customization.Settings
 {
+    /// <summary>
+    ///     Represent a set of game settings.
+    /// </summary>
     [Serializable]
     [DataContract]
     public struct Settings

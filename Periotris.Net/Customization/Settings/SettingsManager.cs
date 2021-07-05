@@ -44,7 +44,7 @@ namespace Periotris.Net.Customization.Settings
 
         private void ReadFromFile()
         {
-            using FileStream settingsStream = FileIO.OpenDataFile(PeriotrisConst.SettingsFileName);
+            using Stream settingsStream = FileIO.OpenStreamByType(PeriotrisConst.SettingsFileName, PathType.Data);
             if (settingsStream.Length <= 0)
             {
                 // File is newly created - file does not exist before
@@ -55,20 +55,15 @@ namespace Periotris.Net.Customization.Settings
                 using StreamReader reader = new(settingsStream);
                 JsonSerializer serializer = new();
                 object readObject = serializer.Deserialize(reader, typeof(Settings));
-                if (readObject != null)
-                {
-                    settings = (Settings)readObject;
-                }
-                else
-                {
-                    throw new FileNotFoundException(null, PeriotrisConst.SettingsFileName);
-                }
+                settings = readObject != null
+                    ? (Settings)readObject
+                    : throw new FileNotFoundException(null, PeriotrisConst.SettingsFileName);
             }
         }
 
         private void WriteIntoFile()
         {
-            using FileStream settingsStream = FileIO.OpenDataFile(PeriotrisConst.SettingsFileName);
+            using Stream settingsStream = FileIO.OpenStreamByType(PeriotrisConst.SettingsFileName, PathType.Data);
             using StreamWriter writer = new(settingsStream);
             JsonSerializer serializer = new();
             serializer.Serialize(writer, settings, typeof(Settings));
