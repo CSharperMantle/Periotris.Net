@@ -1,4 +1,22 @@
-﻿using Newtonsoft.Json;
+﻿/*
+ * Periotris.Net
+ * Copyright (C) 2020-present Rong "Mantle" Bao (CSharperMantle)
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see < https://github.com/CSharperMantle/Periotris.Net/blob/main/LICENSE >.
+ */
+
+using Newtonsoft.Json;
 using Periotris.Net.Common;
 using System;
 using System.Collections.Generic;
@@ -11,15 +29,34 @@ namespace Periotris.Net.Customization.History
     [DataContract]
     public class History
     {
-        private History()
-        {
-            PlayRecords = new List<TimeSpan>();
-            FastestRecord = null;
-        }
+        [DataMember] public TimeSpan? FastestRecord { get; private set; }
 
         [DataMember] public List<TimeSpan> PlayRecords { get; private set; }
 
-        [DataMember] public TimeSpan? FastestRecord { get; private set; }
+        public static History ReadFromFile()
+        {
+            if (!File.Exists(PeriotrisConst.HistoryFileName))
+            {
+                return new History();
+            }
+
+            JsonSerializer jsonSerializer = new();
+
+            using Stream inStream = FileIO.OpenStreamByType(PeriotrisConst.HistoryFileName, PathType.Data);
+            using StreamReader sr = new(inStream);
+            using JsonTextReader reader = new(sr);
+            return jsonSerializer.Deserialize<History>(reader);
+        }
+
+        public static void WriteToFile(History history)
+        {
+            JsonSerializer jsonSerializer = new();
+
+            using Stream outStream = FileIO.OpenStreamByType(PeriotrisConst.HistoryFileName, PathType.Data);
+            using StreamWriter sw = new(outStream);
+            using JsonTextWriter writer = new(sw);
+            jsonSerializer.Serialize(writer, history);
+        }
 
         /// <summary>
         ///     Add a new score to the record.
@@ -44,29 +81,10 @@ namespace Periotris.Net.Customization.History
             return false;
         }
 
-        public static void WriteToFile(History history)
+        private History()
         {
-            JsonSerializer jsonSerializer = new();
-
-            using Stream outStream = FileIO.OpenStreamByType(PeriotrisConst.HistoryFileName, PathType.Data);
-            using StreamWriter sw = new(outStream);
-            using JsonTextWriter writer = new(sw);
-            jsonSerializer.Serialize(writer, history);
-        }
-
-        public static History ReadFromFile()
-        {
-            if (!File.Exists(PeriotrisConst.HistoryFileName))
-            {
-                return new History();
-            }
-
-            JsonSerializer jsonSerializer = new();
-
-            using Stream inStream = FileIO.OpenStreamByType(PeriotrisConst.HistoryFileName, PathType.Data);
-            using StreamReader sr = new(inStream);
-            using JsonTextReader reader = new(sr);
-            return jsonSerializer.Deserialize<History>(reader);
+            PlayRecords = new List<TimeSpan>();
+            FastestRecord = null;
         }
     }
 }

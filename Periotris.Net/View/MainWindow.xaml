@@ -1,13 +1,12 @@
 ﻿<mah:MetroWindow x:Class="Periotris.Net.View.MainWindow"
                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                 xmlns:local="clr-namespace:Periotris.Net.View"
                  xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
                  xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
-      xmlns:viewModel="clr-namespace:Periotris.Net.ViewModel"
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                  xmlns:p="clr-namespace:Periotris.Net.Properties"
+                 xmlns:viewModel="clr-namespace:Periotris.Net.ViewModel"
                  mc:Ignorable="d"
                  d:DataContext="{d:DesignInstance Type=viewModel:MainWindowViewModel}"
                  Title="{x:Static p:MainWindowResources.MainWindowTitle}" Height="600" Width="800"
@@ -52,12 +51,11 @@
                         Position="Right" Width="300"
                         IsOpen="{Binding Path=SettingsFlyoutOpened, Mode=TwoWay}">
                 <StackPanel Orientation="Vertical">
-                    
                 </StackPanel>
             </mah:Flyout>
         </mah:FlyoutsControl>
     </mah:MetroWindow.Flyouts>
     <Frame x:Name="MainFrame"
            NavigationUIVisibility="Hidden"
-           HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+           HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
 </mah:MetroWindow>

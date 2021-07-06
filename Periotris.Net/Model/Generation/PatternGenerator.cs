@@ -1,4 +1,22 @@
-﻿using Periotris.Net.Common;
+﻿/*
+ * Periotris.Net
+ * Copyright (C) 2020-present Rong "Mantle" Bao (CSharperMantle)
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see < https://github.com/CSharperMantle/Periotris.Net/blob/main/LICENSE >.
+ */
+
+using Periotris.Net.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,6 +80,38 @@ namespace Periotris.Net.Model.Generation
         }
 
         /// <summary>
+        ///     Get the coordination of the first <see cref="Block" /> with <see cref="TetriminoKind.AvailableToFill" />.s
+        /// </summary>
+        /// <param name="blocks">Two-dimentional array to search in</param>
+        /// <returns>A pair of coordination X and Y. (-1, -1) if not found.</returns>
+        private static (int X, int Y) GetFirstAvailableBlockCoordination(Block[,] blocks)
+        {
+            int firstBlockRow = -1;
+            int firstBlockCol = -1;
+            bool firstBlockFound = false;
+            for (int nRow = blocks.GetLength(0) - 1; nRow >= 0; nRow--)
+            {
+                for (int nCol = blocks.GetLength(1) - 1; nCol >= 0; nCol--)
+                {
+                    if (blocks[nRow, nCol].FilledBy == TetriminoKind.AvailableToFill)
+                    {
+                        firstBlockRow = nRow;
+                        firstBlockCol = nCol;
+                        firstBlockFound = true;
+                        break;
+                    }
+                }
+
+                if (firstBlockFound)
+                {
+                    break;
+                }
+            }
+
+            return (firstBlockCol, firstBlockRow);
+        }
+
+        /// <summary>
         ///     Generate a <see cref="IReadOnlyList{T}" /> of <see cref="Tetrimino" />s that fills the given template.
         /// </summary>
         /// <param name="template">
@@ -96,16 +146,16 @@ namespace Periotris.Net.Model.Generation
 
             /* Here in the main loop there are many things we need to do:
              * 0. All cursors are set to null when beginning this loop.
-             * 
+             *
              * 1. Check if there are any more unplaced blocks, if so, we will record its coordinates.
-             *    Otherwise we will just return the placed Stack as there are no more Tetriminos to 
+             *    Otherwise we will just return the placed Stack as there are no more Tetriminos to
              *    place.
-             *    
+             *
              * 2. Generate a randomly-ordered list of TetriminoKind and iterate all over them. Check
              *    if there are any possible placeable Tetrimino configurations and push it to the stack.
              *    The cursors are set to null for a new iteration from Step 1. Do not forget to set its Blocks
              *    to its suitable FilledBy state in the workspace.
-             *    
+             *
              * 3. If there are no possible placeable Tetriminos then we need to 'rewind' the stack.
              *    We pop back one Tetrimino and its corresponding stack of TetriminoKind, choose the
              *    next one and then go back to Step 2. Do not forget to erase any settled block state of
@@ -223,57 +273,25 @@ namespace Periotris.Net.Model.Generation
             }
         }
 
-        /// <summary>
-        ///     Get the coordination of the first <see cref="Block" /> with <see cref="TetriminoKind.AvailableToFill" />.s
-        /// </summary>
-        /// <param name="blocks">Two-dimentional array to search in</param>
-        /// <returns>A pair of coordination X and Y. (-1, -1) if not found.</returns>
-        private static (int X, int Y) GetFirstAvailableBlockCoordination(Block[,] blocks)
-        {
-            int firstBlockRow = -1;
-            int firstBlockCol = -1;
-            bool firstBlockFound = false;
-            for (int nRow = blocks.GetLength(0) - 1; nRow >= 0; nRow--)
-            {
-                for (int nCol = blocks.GetLength(1) - 1; nCol >= 0; nCol--)
-                {
-                    if (blocks[nRow, nCol].FilledBy == TetriminoKind.AvailableToFill)
-                    {
-                        firstBlockRow = nRow;
-                        firstBlockCol = nCol;
-                        firstBlockFound = true;
-                        break;
-                    }
-                }
-
-                if (firstBlockFound)
-                {
-                    break;
-                }
-            }
-
-            return (firstBlockCol, firstBlockRow);
-        }
-
         private class KindDirectionsPair
         {
-            private static readonly Direction[] AllDirections =
-            {
-                Direction.Left,
-                Direction.Right,
-                Direction.Up,
-                Direction.Down
-            };
-
             public KindDirectionsPair(TetriminoKind kind, Random rand)
             {
                 TetriminoKind = kind;
                 PendingDirections = new Stack<Direction>(AllDirections.OrderBy(x => rand.Next()));
             }
 
+            public Stack<Direction> PendingDirections { get; }
+
             public TetriminoKind TetriminoKind { get; }
 
-            public Stack<Direction> PendingDirections { get; }
+            private static readonly Direction[] AllDirections =
+                                                {
+                Direction.Left,
+                Direction.Right,
+                Direction.Up,
+                Direction.Down
+            };
         }
     }
 }

@@ -17,7 +17,7 @@
                        FontFamily="Noto Sans"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
-                       Margin="4 4 4 4"/>
+                       Margin="4 4 4 4" />
         </Grid>
     </Viewbox>
 </UserControl>

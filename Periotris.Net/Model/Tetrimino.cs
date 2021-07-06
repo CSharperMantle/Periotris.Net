@@ -1,4 +1,22 @@
-﻿using Periotris.Net.Common;
+﻿/*
+ * Periotris.Net
+ * Copyright (C) 2020-present Rong "Mantle" Bao (CSharperMantle)
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see < https://github.com/CSharperMantle/Periotris.Net/blob/main/LICENSE >.
+ */
+
+using Periotris.Net.Common;
 using Periotris.Net.Model.Generation;
 using System;
 using System.Collections.Generic;
@@ -11,15 +29,9 @@ namespace Periotris.Net.Model
     /// </summary>
     public class Tetrimino
     {
-        protected Tetrimino(TetriminoKind kind, Position position, Position firstBlockPosition,
-            Direction facingDirection)
-        {
-            Kind = kind;
-            Position = position;
-            FacingDirection = facingDirection;
-            FirstBlockPosition = firstBlockPosition;
-            Blocks = GeneratorHelper.CreateOffsetBlocks(kind, Position, facingDirection);
-        }
+        public IReadOnlyList<Block> Blocks { get; internal set; }
+
+        public Direction FacingDirection { get; internal set; }
 
         /// <summary>
         ///     <para>
@@ -32,13 +44,31 @@ namespace Periotris.Net.Model
         /// </summary>
         public Position FirstBlockPosition { get; }
 
-        public Direction FacingDirection { get; internal set; }
-
         public TetriminoKind Kind { get; }
 
         public Position Position { get; internal set; }
 
-        public IReadOnlyList<Block> Blocks { get; internal set; }
+        public static Tetrimino ByFirstBlockPosition(TetriminoKind kind, Position firstBlockPosition,
+            Direction facingDirection)
+        {
+            return new Tetrimino(kind,
+                GeneratorHelper.GetPositionByFirstBlockPosition(firstBlockPosition, kind, facingDirection),
+                firstBlockPosition,
+                facingDirection);
+        }
+
+        public static Tetrimino ByPosition(TetriminoKind kind, Position position, Direction facingDirection)
+        {
+            return new Tetrimino(kind,
+                position,
+                GeneratorHelper.GetFirstBlockPositionByPosition(position, kind, facingDirection),
+                facingDirection);
+        }
+
+        public override string ToString()
+        {
+            return $"<Tetrimino Kind:{Kind} Position:{Position} FirstBlock:{FirstBlockPosition}>";
+        }
 
         /// <summary>
         ///     Move a <see cref="Tetrimino" /> towards a <see cref="MoveDirection" /> if permits.
@@ -125,26 +155,14 @@ namespace Periotris.Net.Model
             return false;
         }
 
-        public override string ToString()
+        protected Tetrimino(TetriminoKind kind, Position position, Position firstBlockPosition,
+                                                                                            Direction facingDirection)
         {
-            return $"<Tetrimino Kind:{Kind} Position:{Position} FirstBlock:{FirstBlockPosition}>";
-        }
-
-        public static Tetrimino ByPosition(TetriminoKind kind, Position position, Direction facingDirection)
-        {
-            return new Tetrimino(kind,
-                position,
-                GeneratorHelper.GetFirstBlockPositionByPosition(position, kind, facingDirection),
-                facingDirection);
-        }
-
-        public static Tetrimino ByFirstBlockPosition(TetriminoKind kind, Position firstBlockPosition,
-            Direction facingDirection)
-        {
-            return new Tetrimino(kind,
-                GeneratorHelper.GetPositionByFirstBlockPosition(firstBlockPosition, kind, facingDirection),
-                firstBlockPosition,
-                facingDirection);
+            Kind = kind;
+            Position = position;
+            FacingDirection = facingDirection;
+            FirstBlockPosition = firstBlockPosition;
+            Blocks = GeneratorHelper.CreateOffsetBlocks(kind, Position, facingDirection);
         }
     }
 }

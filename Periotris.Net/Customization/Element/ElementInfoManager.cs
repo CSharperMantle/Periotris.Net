@@ -1,4 +1,22 @@
-﻿using Newtonsoft.Json.Linq;
+﻿/*
+ * Periotris.Net
+ * Copyright (C) 2020-present Rong "Mantle" Bao (CSharperMantle)
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see < https://github.com/CSharperMantle/Periotris.Net/blob/main/LICENSE >.
+ */
+
+using Newtonsoft.Json.Linq;
 using Periotris.Net.Common;
 using System;
 using System.Collections.Generic;
@@ -12,47 +30,10 @@ namespace Periotris.Net.Customization.Element
     /// </summary>
     public sealed class ElementInfoManager
     {
-        // ReSharper disable once InconsistentNaming
-        private static readonly Lazy<ElementInfoManager> instance
-            = new(() => new ElementInfoManager());
-
-        private readonly Dictionary<int, ElementInfo> _cacheElementInfo
-            = new();
-
-        private JObject _periodicTableRoot;
-
-        private ElementInfoManager()
-        {
-            SetDataFilePath(PeriotrisConst.PeriodicTableJsonFileName, PathType.Resource);
-        }
-
         /// <summary>
         ///     Get the instance of <see cref="ElementInfoManager" />.
         /// </summary>
         public static ElementInfoManager Instance => instance.Value;
-
-        private string dataFilePath = string.Empty;
-
-        /// <summary>
-        ///     Set the data file path. The method will purge the cache when necessary.
-        /// </summary>
-        /// <param name="value">The new value.</param>
-        /// <param name="pathType">Kind of the path.</param>
-        public void SetDataFilePath(string value, PathType pathType)
-        {
-            ReloadPeriodicTable(value, pathType);
-            dataFilePath = value;
-        }
-
-        /// <summary>
-        /// Get the current data file path.
-        /// </summary>
-        /// <returns>The current data file path.</returns>
-        public string GetDataFilePath()
-        {
-            return dataFilePath;
-        }
-
 
         /// <summary>
         ///     Obtain a <see cref="ElementInfo" /> by atomic number.
@@ -100,6 +81,42 @@ namespace Periotris.Net.Customization.Element
             _cacheElementInfo.Add(atomicNumber, elementInfo);
 
             return elementInfo;
+        }
+
+        /// <summary>
+        /// Get the current data file path.
+        /// </summary>
+        /// <returns>The current data file path.</returns>
+        public string GetDataFilePath()
+        {
+            return dataFilePath;
+        }
+
+        /// <summary>
+        ///     Set the data file path. The method will purge the cache when necessary.
+        /// </summary>
+        /// <param name="value">The new value.</param>
+        /// <param name="pathType">Kind of the path.</param>
+        public void SetDataFilePath(string value, PathType pathType)
+        {
+            ReloadPeriodicTable(value, pathType);
+            dataFilePath = value;
+        }
+
+        // ReSharper disable once InconsistentNaming
+        private static readonly Lazy<ElementInfoManager> instance
+            = new(() => new ElementInfoManager());
+
+        private readonly Dictionary<int, ElementInfo> _cacheElementInfo
+            = new();
+
+        private JObject _periodicTableRoot;
+
+        private string dataFilePath = string.Empty;
+
+        private ElementInfoManager()
+        {
+            SetDataFilePath(PeriotrisConst.PeriodicTableJsonFileName, PathType.Resource);
         }
 
         /// <summary>

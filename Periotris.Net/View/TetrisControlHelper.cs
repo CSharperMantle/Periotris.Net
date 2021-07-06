@@ -1,4 +1,22 @@
-﻿using Periotris.Net.Customization.Element;
+﻿/*
+ * Periotris.Net
+ * Copyright (C) 2020-present Rong "Mantle" Bao (CSharperMantle)
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see < https://github.com/CSharperMantle/Periotris.Net/blob/main/LICENSE >.
+ */
+
+using Periotris.Net.Customization.Element;
 using Periotris.Net.Model;
 using System.Windows;
 using System.Windows.Controls;
@@ -25,38 +43,6 @@ namespace Periotris.Net.View
             );
             Panel.SetZIndex(newBlockControl, 1);
             return newBlockControl;
-        }
-
-        public static FrameworkElement HorizontalAssistGridLineFactory(int y, int width, double scale)
-        {
-            Rectangle rectangle = new()
-            {
-                Width = width * scale,
-                Height = 1,
-                Opacity = 0.1,
-                Fill = new SolidColorBrush(Colors.White)
-            };
-            SetCanvasLocation(rectangle, 0, y * scale);
-            return rectangle;
-        }
-
-        public static FrameworkElement VerticalAssistGridLineFactory(int x, int height, double scale)
-        {
-            Rectangle rectangle = new()
-            {
-                Width = 1,
-                Height = height * scale,
-                Opacity = 0.1,
-                Fill = new SolidColorBrush(Colors.White)
-            };
-            SetCanvasLocation(rectangle, x * scale, 0);
-            return rectangle;
-        }
-
-        public static void SetCanvasLocation(FrameworkElement element, double x, double y)
-        {
-            Canvas.SetLeft(element, x);
-            Canvas.SetTop(element, y);
         }
 
         public static SolidColorBrush GetBlockColorByAtomicNumber(int atomicNumber, bool renderColors)
@@ -103,6 +89,38 @@ namespace Periotris.Net.View
             }
 
             return new SolidColorBrush(Colors.Green);
+        }
+
+        public static FrameworkElement HorizontalAssistGridLineFactory(int y, int width, double scale)
+        {
+            Rectangle rectangle = new()
+            {
+                Width = width * scale,
+                Height = 1,
+                Opacity = 0.1,
+                Fill = new SolidColorBrush(Colors.White)
+            };
+            SetCanvasLocation(rectangle, 0, y * scale);
+            return rectangle;
+        }
+
+        public static void SetCanvasLocation(FrameworkElement element, double x, double y)
+        {
+            Canvas.SetLeft(element, x);
+            Canvas.SetTop(element, y);
+        }
+
+        public static FrameworkElement VerticalAssistGridLineFactory(int x, int height, double scale)
+        {
+            Rectangle rectangle = new()
+            {
+                Width = 1,
+                Height = height * scale,
+                Opacity = 0.1,
+                Fill = new SolidColorBrush(Colors.White)
+            };
+            SetCanvasLocation(rectangle, x * scale, 0);
+            return rectangle;
         }
     }
 }

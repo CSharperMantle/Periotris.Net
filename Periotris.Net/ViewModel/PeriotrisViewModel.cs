@@ -1,4 +1,22 @@
-﻿using Periotris.Net.Common;
+﻿/*
+ * Periotris.Net
+ * Copyright (C) 2020-present Rong "Mantle" Bao (CSharperMantle)
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see < https://github.com/CSharperMantle/Periotris.Net/blob/main/LICENSE >.
+ */
+
+using Periotris.Net.Common;
 using Periotris.Net.Customization.Settings;
 using Periotris.Net.Model;
 using Periotris.Net.View;
@@ -16,23 +34,6 @@ namespace Periotris.Net.ViewModel
 {
     public class PeriotrisViewModel : INotifyPropertyChanged
     {
-        private readonly List<FrameworkElement> _assistGridLines =
-            new();
-
-        private readonly Dictionary<Position, FrameworkElement> _blocksByPosition =
-            new();
-
-        private readonly DispatcherTimer _gameTimer = new();
-
-        private readonly PeriotrisModel _model = new();
-
-        private readonly ObservableCollection<FrameworkElement> _sprites =
-            new();
-
-        private readonly DispatcherTimer _timeDisplayRefreshTimer = new();
-
-        private bool _lastPaused = true;
-
         public PeriotrisViewModel()
         {
             Scale = 1;
@@ -49,6 +50,8 @@ namespace Periotris.Net.ViewModel
             EndGame();
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         ///     Scaling factor for proper positioning.
         /// </summary>
@@ -56,6 +59,12 @@ namespace Periotris.Net.ViewModel
         ///     TODO.
         /// </remarks>
         public static double Scale { get; private set; }
+
+        public bool GameOver => _model.GameEnded && !_model.Victory;
+
+        public bool GameWon => _model.GameEnded && _model.Victory;
+
+        public bool Paused { get; set; }
 
         public Size PlayAreaSize
         {
@@ -66,18 +75,6 @@ namespace Periotris.Net.ViewModel
                 RecreateAssistGrids();
             }
         }
-
-        public INotifyCollectionChanged Sprites => _sprites;
-
-        public bool GameOver => _model.GameEnded && !_model.Victory;
-
-        public bool GameWon => _model.GameEnded && _model.Victory;
-
-        public TimeSpan ElapsedTime => _model.ElapsedTime;
-
-        public TimeSpan? CurrentHighestScore => _model.CurrentHighestScore;
-
-        public bool Paused { get; set; }
 
         public bool ShouldRenderColors
         {
@@ -101,26 +98,11 @@ namespace Periotris.Net.ViewModel
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public INotifyCollectionChanged Sprites => _sprites;
 
-        /// <summary>
-        ///     Start the underlying game in <see cref="PeriotrisModel" />.
-        /// </summary>
-        public void StartGame()
-        {
-            RecreateAssistGrids();
-            foreach (FrameworkElement block in _blocksByPosition.Values)
-            {
-                _sprites.Remove(block);
-            }
+        public TimeSpan? CurrentHighestScore => _model.CurrentHighestScore;
 
-            _model.StartGame();
-            OnPropertyChanged(nameof(GameOver));
-            OnPropertyChanged(nameof(GameWon));
-            Paused = false;
-            _gameTimer.Start();
-            _timeDisplayRefreshTimer.Start();
-        }
+        public TimeSpan ElapsedTime => _model.ElapsedTime;
 
         /// <summary>
         /// KeyDown event handler.
@@ -144,38 +126,84 @@ namespace Periotris.Net.ViewModel
                 case Key.A:
                     _model.MoveActiveTetrimino(MoveDirection.Left);
                     break;
+
                 case Key.S:
                     _model.MoveActiveTetrimino(MoveDirection.Down);
                     break;
+
                 case Key.D:
                     _model.MoveActiveTetrimino(MoveDirection.Right);
                     break;
+
                 case Key.W:
                     _model.RotateActiveTetrimino(RotationDirection.Right);
                     break;
+
                 case Key.Left:
                     _model.MoveActiveTetrimino(MoveDirection.Left);
                     break;
+
                 case Key.Down:
                     _model.MoveActiveTetrimino(MoveDirection.Down);
                     break;
+
                 case Key.Right:
                     _model.MoveActiveTetrimino(MoveDirection.Right);
                     break;
+
                 case Key.Up:
                     _model.RotateActiveTetrimino(RotationDirection.Right);
                     break;
+
                 case Key.Space:
                     _model.InstantDropActiveTetrimino();
                     break;
+
                 case Key.Escape:
                     Paused = !Paused;
                     break;
+
                 default:
                     return false;
             }
             return true;
         }
+
+        /// <summary>
+        ///     Start the underlying game in <see cref="PeriotrisModel" />.
+        /// </summary>
+        public void StartGame()
+        {
+            RecreateAssistGrids();
+            foreach (FrameworkElement block in _blocksByPosition.Values)
+            {
+                _sprites.Remove(block);
+            }
+
+            _model.StartGame();
+            OnPropertyChanged(nameof(GameOver));
+            OnPropertyChanged(nameof(GameWon));
+            Paused = false;
+            _gameTimer.Start();
+            _timeDisplayRefreshTimer.Start();
+        }
+
+        private readonly List<FrameworkElement> _assistGridLines =
+                                                                                                                            new();
+
+        private readonly Dictionary<Position, FrameworkElement> _blocksByPosition =
+            new();
+
+        private readonly DispatcherTimer _gameTimer = new();
+
+        private readonly PeriotrisModel _model = new();
+
+        private readonly ObservableCollection<FrameworkElement> _sprites =
+            new();
+
+        private readonly DispatcherTimer _timeDisplayRefreshTimer = new();
+
+        private bool _lastPaused = true;
 
         private void EndGame()
         {
@@ -184,6 +212,56 @@ namespace Periotris.Net.ViewModel
             OnPropertyChanged(nameof(GameOver));
             OnPropertyChanged(nameof(GameWon));
             OnPropertyChanged(nameof(CurrentHighestScore));
+        }
+
+        private void GameUpdateTimerTickEventHandler(object sender, EventArgs e)
+        {
+            if (_lastPaused != Paused)
+            {
+                OnPropertyChanged(nameof(Paused));
+                _lastPaused = Paused;
+            }
+
+            if (!Paused)
+            {
+                _model.Update();
+            }
+            // Update interval
+            _gameTimer.Interval = TimeSpan.FromSeconds(PeriotrisConst.GameUpdateIntervalSeconds);
+        }
+
+        private void ModelBlockChangedEventHandler(object sender, BlockChangedEventArgs e)
+        {
+            if (!e.Disappeared)
+            {
+                if (!_blocksByPosition.Keys.Contains(e.BlockUpdated.Position))
+                {
+                    // Create a new BlockControl.
+                    FrameworkElement blockControl =
+                        TetrisControlHelper.AnnotatedBlockControlFactory(e.BlockUpdated, ShouldRenderColors, Scale);
+                    _blocksByPosition.Add(e.BlockUpdated.Position, blockControl);
+                    _sprites.Add(blockControl);
+                }
+            }
+            else
+            {
+                if (_blocksByPosition.Keys.Contains(e.BlockUpdated.Position))
+                {
+                    _sprites.Remove(_blocksByPosition[e.BlockUpdated.Position]);
+                    _blocksByPosition.Remove(e.BlockUpdated.Position);
+                }
+            }
+        }
+
+        private void ModelGameEndEventListener(object sender, EventArgs e)
+        {
+            EndGame();
+        }
+
+        private void OnPropertyChanged(string propertyName = null)
+        {
+            PropertyChangedEventHandler propertyChanged = PropertyChanged;
+            propertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         private void RecreateAssistGrids()
@@ -217,56 +295,6 @@ namespace Periotris.Net.ViewModel
                 _assistGridLines.Add(scanLine);
                 _sprites.Add(scanLine);
             }
-        }
-
-        private void OnPropertyChanged(string propertyName = null)
-        {
-            PropertyChangedEventHandler propertyChanged = PropertyChanged;
-            propertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        private void ModelBlockChangedEventHandler(object sender, BlockChangedEventArgs e)
-        {
-            if (!e.Disappeared)
-            {
-                if (!_blocksByPosition.Keys.Contains(e.BlockUpdated.Position))
-                {
-                    // Create a new BlockControl.
-                    FrameworkElement blockControl =
-                        TetrisControlHelper.AnnotatedBlockControlFactory(e.BlockUpdated, ShouldRenderColors, Scale);
-                    _blocksByPosition.Add(e.BlockUpdated.Position, blockControl);
-                    _sprites.Add(blockControl);
-                }
-            }
-            else
-            {
-                if (_blocksByPosition.Keys.Contains(e.BlockUpdated.Position))
-                {
-                    _sprites.Remove(_blocksByPosition[e.BlockUpdated.Position]);
-                    _blocksByPosition.Remove(e.BlockUpdated.Position);
-                }
-            }
-        }
-
-        private void ModelGameEndEventListener(object sender, EventArgs e)
-        {
-            EndGame();
-        }
-
-        private void GameUpdateTimerTickEventHandler(object sender, EventArgs e)
-        {
-            if (_lastPaused != Paused)
-            {
-                OnPropertyChanged(nameof(Paused));
-                _lastPaused = Paused;
-            }
-
-            if (!Paused)
-            {
-                _model.Update();
-            }
-            // Update interval
-            _gameTimer.Interval = TimeSpan.FromSeconds(PeriotrisConst.GameUpdateIntervalSeconds);
         }
 
         private void TimeDisplayTimerTickEventHandler(object sender, EventArgs e)
