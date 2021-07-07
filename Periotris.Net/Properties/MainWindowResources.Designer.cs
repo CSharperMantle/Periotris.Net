@@ -87,6 +87,60 @@ namespace Periotris.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Disabled.
+        /// </summary>
+        public static string AssistanceGridModeDisabledCaption {
+            get {
+                return ResourceManager.GetString("AssistanceGridModeDisabledCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enabled.
+        /// </summary>
+        public static string AssistanceGridModeEnabledCaption {
+            get {
+                return ResourceManager.GetString("AssistanceGridModeEnabledCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Assistance grid visibility:.
+        /// </summary>
+        public static string AssistanceGridModeHeader {
+            get {
+                return ResourceManager.GetString("AssistanceGridModeHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default.
+        /// </summary>
+        public static string ColorModeDefaultCaption {
+            get {
+                return ResourceManager.GetString("ColorModeDefaultCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Color mode:.
+        /// </summary>
+        public static string ColorModeHeader {
+            get {
+                return ResourceManager.GetString("ColorModeHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Colorless.
+        /// </summary>
+        public static string ColorModeNoneCaption {
+            get {
+                return ResourceManager.GetString("ColorModeNoneCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to View on GitHub.
         /// </summary>
         public static string LaunchGitHubRepoButtonContent {

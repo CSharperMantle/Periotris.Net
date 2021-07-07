@@ -133,6 +133,24 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 
 You should have received a copy of the GNU General Public License along with this program. If not, see &lt; https://github.com/CSharperMantle/Periotris.Net/blob/main/LICENSE &gt;.</value>
   </data>
+  <data name="AssistanceGridModeDisabledCaption" xml:space="preserve">
+    <value>Disabled</value>
+  </data>
+  <data name="AssistanceGridModeEnabledCaption" xml:space="preserve">
+    <value>Enabled</value>
+  </data>
+  <data name="AssistanceGridModeHeader" xml:space="preserve">
+    <value>Assistance grid visibility:</value>
+  </data>
+  <data name="ColorModeDefaultCaption" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="ColorModeHeader" xml:space="preserve">
+    <value>Color mode:</value>
+  </data>
+  <data name="ColorModeNoneCaption" xml:space="preserve">
+    <value>Colorless</value>
+  </data>
   <data name="LaunchGitHubRepoButtonContent" xml:space="preserve">
     <value>View on GitHub</value>
   </data>

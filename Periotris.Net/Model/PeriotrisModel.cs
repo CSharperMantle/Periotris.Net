@@ -66,12 +66,6 @@ namespace Periotris.Net.Model
         /// </summary>
         public bool NewHighScore { get; private set; }
 
-        public Settings Settings
-        {
-            get => _settingsManager.Settings;
-            set => _settingsManager.Settings = value;
-        }
-
         /// <summary>
         ///     Whether the game won.
         /// </summary>
@@ -296,11 +290,6 @@ namespace Periotris.Net.Model
         ///     </para>
         /// </remarks>
         private Tetrimino _activeTetrimino;
-
-        /// <summary>
-        /// Game settings manager.
-        /// </summary>
-        private SettingsManager _settingsManager = SettingsManager.Instance;
 
         /// <summary>
         ///     Internal method which checks whether a <see cref="Block" /> would collide

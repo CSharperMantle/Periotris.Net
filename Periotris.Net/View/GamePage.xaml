@@ -97,19 +97,6 @@
                         Style="{DynamicResource MahApps.Styles.Button.Flat}"
                         Click="BackButton_Click" />
             </StackPanel>
-            <StackPanel Orientation="Horizontal"
-                        HorizontalAlignment="Center" VerticalAlignment="Center">
-                <CheckBox x:Name="ColorsCheckBox"
-                          Content="{x:Static p:GamePageResources.ColorsCheckBoxContent}"
-                          HorizontalAlignment="Center" VerticalAlignment="Center"
-                          Style="{DynamicResource MahApps.Styles.CheckBox.Win10}"
-                          IsChecked="{Binding Path=ShouldRenderColors, Mode=TwoWay}" />
-                <CheckBox x:Name="GridAssistanceCheckBox"
-                          Content="{x:Static p:GamePageResources.GridAssistanceCheckBoxContent}"
-                          HorizontalAlignment="Center" VerticalAlignment="Center"
-                          Style="{DynamicResource MahApps.Styles.CheckBox.Win10}"
-                          IsChecked="{Binding Path=ShouldRenderGridAssistance, Mode=TwoWay}" />
-            </StackPanel>
         </StackPanel>
 
         <TextBlock x:Name="PausedTextBlock" Grid.Row="1"

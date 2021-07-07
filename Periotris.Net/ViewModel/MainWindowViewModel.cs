@@ -16,6 +16,8 @@
  * along with this program.  If not, see < https://github.com/CSharperMantle/Periotris.Net/blob/main/LICENSE >.
  */
 
+using Periotris.Net.Common;
+using Periotris.Net.Customization.Settings;
 using System.ComponentModel;
 
 namespace Periotris.Net.ViewModel
@@ -25,6 +27,30 @@ namespace Periotris.Net.ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
 
         public bool AboutFlyoutOpened { get; set; }
+
+        public AssistanceGridMode AssistanceGridMode
+        {
+            get => SettingsManager.Instance.Settings.AssistanceGridMode;
+            set
+            {
+                SettingsManager manager = SettingsManager.Instance;
+                Settings clone = manager.Settings;
+                clone.AssistanceGridMode = value;
+                manager.Settings = clone;
+            }
+        }
+
+        public ColorMode ColorMode
+        {
+            get => SettingsManager.Instance.Settings.ColorMode;
+            set
+            {
+                SettingsManager manager = SettingsManager.Instance;
+                Settings clone = manager.Settings;
+                clone.ColorMode = value;
+                manager.Settings = clone;
+            }
+        }
 
         public bool SettingsFlyoutOpened { get; set; }
 

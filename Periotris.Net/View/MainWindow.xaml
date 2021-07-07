@@ -7,6 +7,8 @@
                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                  xmlns:p="clr-namespace:Periotris.Net.Properties"
                  xmlns:viewModel="clr-namespace:Periotris.Net.ViewModel"
+                 xmlns:local="clr-namespace:Periotris.Net.View"
+                 xmlns:common="clr-namespace:Periotris.Net.Common"
                  mc:Ignorable="d"
                  d:DataContext="{d:DesignInstance Type=viewModel:MainWindowViewModel}"
                  Title="{x:Static p:MainWindowResources.MainWindowTitle}" Height="600" Width="800"
@@ -14,6 +16,7 @@
     <mah:MetroWindow.Resources>
         <viewModel:MainWindowViewModel x:Key="ViewModel" />
         <viewModel:BoolVisibilityConverter x:Key="VisibilityConverter" />
+        <viewModel:MainWindowEnumToStringConverter x:Key="EnumConverter" />
     </mah:MetroWindow.Resources>
     <mah:MetroWindow.RightWindowCommands>
         <mah:WindowCommands>
@@ -41,17 +44,48 @@
             <mah:Flyout x:Name="AboutFlyout" Header="{x:Static p:MainWindowResources.AboutFlyoutHeader}"
                         Position="Right" Width="300"
                         IsOpen="{Binding Path=AboutFlyoutOpened, Mode=TwoWay}">
-                <TextBlock Text="{x:Static p:MainWindowResources.AboutFlyoutText}"
-                           Margin="10 10 10 10"
+                <Border Padding="10 10 10 10">
+                    <TextBlock Text="{x:Static p:MainWindowResources.AboutFlyoutText}"
                            Foreground="White"
                            FontFamily="Microsoft YaHei UI" TextWrapping="Wrap">
-                </TextBlock>
+                    </TextBlock>
+                </Border>
             </mah:Flyout>
             <mah:Flyout x:Name="SettingsFlyout" Header="{x:Static p:MainWindowResources.SettingsFlyoutHeader}"
-                        Position="Right" Width="300"
+                        Position="Right" Width="300" Padding="10 10 10 10"
                         IsOpen="{Binding Path=SettingsFlyoutOpened, Mode=TwoWay}">
-                <StackPanel Orientation="Vertical">
-                </StackPanel>
+                <mah:Flyout.Resources>
+                </mah:Flyout.Resources>
+                <Border Padding="10 10 10 10">
+                    <ScrollViewer
+                        VerticalScrollBarVisibility="Auto"
+                        HorizontalScrollBarVisibility="Disabled"
+                        VerticalAlignment="Stretch"
+                        HorizontalAlignment="Stretch">
+                        <StackPanel Margin="0 10 0 5" Orientation="Vertical">
+                            <mah:MetroHeader
+                                Margin="0 10 0 0"
+                                Header="{x:Static p:MainWindowResources.ColorModeHeader}">
+                                <ComboBox x:Name="ColorModeComboBox"
+                                          ItemsSource="{local:MainWindowEnumerate {x:Type common:ColorMode}}"
+                                          SelectedItem="{Binding Path=ColorMode, Mode=TwoWay, Converter={StaticResource EnumConverter}}"
+                                          IsReadOnly="False"
+                                          IsEditable="False">
+                                </ComboBox>
+                            </mah:MetroHeader>
+                            <mah:MetroHeader
+                                Margin="0 10 0 0"
+                                Header="{x:Static p:MainWindowResources.AssistanceGridModeHeader}">
+                                <ComboBox x:Name="AssistanceGridModeComboBox"
+                                          ItemsSource="{local:MainWindowEnumerate {x:Type common:AssistanceGridMode}}"
+                                          SelectedItem="{Binding Path=AssistanceGridMode, Mode=TwoWay, Converter={StaticResource EnumConverter}}"
+                                          IsReadOnly="False"
+                                          IsEditable="False">
+                                </ComboBox>
+                            </mah:MetroHeader>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Border>
             </mah:Flyout>
         </mah:FlyoutsControl>
     </mah:MetroWindow.Flyouts>

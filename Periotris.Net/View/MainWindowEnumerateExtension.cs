@@ -16,28 +16,33 @@
  * along with this program.  If not, see < https://github.com/CSharperMantle/Periotris.Net/blob/main/LICENSE >.
  */
 
-using Periotris.Net.Common;
 using System;
-using System.Runtime.Serialization;
+using System.Windows.Markup;
 
-namespace Periotris.Net.Customization.Settings
+namespace Periotris.Net.View
 {
-    /// <summary>
-    ///     Represent a set of game settings.
-    /// </summary>
-    [Serializable]
-    [DataContract]
-    public struct Settings
+    public sealed class MainWindowEnumerateExtension : MarkupExtension
     {
-        public static readonly Settings Default = new()
+        public MainWindowEnumerateExtension(Type type)
         {
-            ColorMode = ColorMode.Default,
-            AssistanceGridMode = AssistanceGridMode.Enabled,
-            HistoryFilePathFull = PeriotrisConst.PeriotrisGameDataPath + PeriotrisConst.HistoryFileName
-        };
+            Type = type;
+        }
 
-        [DataMember] public AssistanceGridMode AssistanceGridMode { get; set; }
-        [DataMember] public ColorMode ColorMode { get; set; }
-        [DataMember] public string HistoryFilePathFull { get; set; }
+        public Type Type { get; set; }
+
+        public override object ProvideValue(IServiceProvider serviceProvider)
+        {
+            string[] names = Enum.GetNames(Type);
+            string[] values = new string[names.Length];
+
+            for (int i = 0; i < names.Length; i++)
+            {
+                values[i] = Properties.MainWindowResources.ResourceManager.GetString(
+                    string.Format("{0}{1}Caption", Type.Name, names[i])
+                );
+            }
+
+            return values;
+        }
     }
 }

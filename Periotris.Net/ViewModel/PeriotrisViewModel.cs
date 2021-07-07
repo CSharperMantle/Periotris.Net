@@ -60,6 +60,30 @@ namespace Periotris.Net.ViewModel
         /// </remarks>
         public static double Scale { get; private set; }
 
+        public AssistanceGridMode AssistanceGridMode
+        {
+            get => SettingsManager.Instance.Settings.AssistanceGridMode;
+            set
+            {
+                SettingsManager manager = SettingsManager.Instance;
+                Settings clone = manager.Settings;
+                clone.AssistanceGridMode = value;
+                manager.Settings = clone;
+            }
+        }
+
+        public ColorMode ColorMode
+        {
+            get => SettingsManager.Instance.Settings.ColorMode;
+            set
+            {
+                SettingsManager manager = SettingsManager.Instance;
+                Settings clone = manager.Settings;
+                clone.ColorMode = value;
+                manager.Settings = clone;
+            }
+        }
+
         public bool GameOver => _model.GameEnded && !_model.Victory;
 
         public bool GameWon => _model.GameEnded && _model.Victory;
@@ -73,28 +97,6 @@ namespace Periotris.Net.ViewModel
                 Scale = value.Width / PeriotrisConst.PlayAreaWidth;
                 _model.UpdateAllBlocks();
                 RecreateAssistGrids();
-            }
-        }
-
-        public bool ShouldRenderColors
-        {
-            get => _model.Settings.ShouldRenderColors;
-            set
-            {
-                Settings clone = _model.Settings;
-                clone.ShouldRenderColors = value;
-                _model.Settings = clone;
-            }
-        }
-
-        public bool ShouldRenderGridAssistance
-        {
-            get => _model.Settings.ShouldRenderGridAssistance;
-            set
-            {
-                Settings clone = _model.Settings;
-                clone.ShouldRenderGridAssistance = value;
-                _model.Settings = clone;
             }
         }
 
@@ -238,7 +240,7 @@ namespace Periotris.Net.ViewModel
                 {
                     // Create a new BlockControl.
                     FrameworkElement blockControl =
-                        TetrisControlHelper.AnnotatedBlockControlFactory(e.BlockUpdated, ShouldRenderColors, Scale);
+                        TetrisControlHelper.AnnotatedBlockControlFactory(e.BlockUpdated, ColorMode, Scale);
                     _blocksByPosition.Add(e.BlockUpdated.Position, blockControl);
                     _sprites.Add(blockControl);
                 }
@@ -275,7 +277,7 @@ namespace Periotris.Net.ViewModel
             }
 
             _assistGridLines.Clear();
-            if (!ShouldRenderGridAssistance)
+            if (AssistanceGridMode != AssistanceGridMode.Enabled)
             {
                 return;
             }

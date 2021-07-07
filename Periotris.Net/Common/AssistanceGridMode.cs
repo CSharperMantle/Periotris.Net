@@ -16,28 +16,17 @@
  * along with this program.  If not, see < https://github.com/CSharperMantle/Periotris.Net/blob/main/LICENSE >.
  */
 
-using Periotris.Net.Common;
 using System;
-using System.Runtime.Serialization;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Periotris.Net.Customization.Settings
+namespace Periotris.Net.Common
 {
-    /// <summary>
-    ///     Represent a set of game settings.
-    /// </summary>
-    [Serializable]
-    [DataContract]
-    public struct Settings
+    public enum AssistanceGridMode
     {
-        public static readonly Settings Default = new()
-        {
-            ColorMode = ColorMode.Default,
-            AssistanceGridMode = AssistanceGridMode.Enabled,
-            HistoryFilePathFull = PeriotrisConst.PeriotrisGameDataPath + PeriotrisConst.HistoryFileName
-        };
-
-        [DataMember] public AssistanceGridMode AssistanceGridMode { get; set; }
-        [DataMember] public ColorMode ColorMode { get; set; }
-        [DataMember] public string HistoryFilePathFull { get; set; }
+        Enabled,
+        Disabled
     }
 }
