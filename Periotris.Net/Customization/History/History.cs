@@ -40,21 +40,20 @@ namespace Periotris.Net.Customization.History
                 return new History();
             }
 
-            JsonSerializer jsonSerializer = new();
-
             using Stream inStream = FileIO.OpenStreamByType(PeriotrisConst.HistoryFileName, PathType.Data);
             using StreamReader sr = new(inStream);
             using JsonTextReader reader = new(sr);
+            JsonSerializer jsonSerializer = new();
             return jsonSerializer.Deserialize<History>(reader);
         }
 
         public static void WriteToFile(History history)
         {
-            JsonSerializer jsonSerializer = new();
-
             using Stream outStream = FileIO.OpenStreamByType(PeriotrisConst.HistoryFileName, PathType.Data);
+            outStream.SetLength(0); // Truncate original stream
             using StreamWriter sw = new(outStream);
             using JsonTextWriter writer = new(sw);
+            JsonSerializer jsonSerializer = new();
             jsonSerializer.Serialize(writer, history);
         }
 
