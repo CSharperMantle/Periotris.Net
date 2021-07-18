@@ -22,6 +22,7 @@ namespace Periotris.Net.Common
 {
     public static class PeriotrisConst
     {
+        public const string DefaultMapJsonFileName = "pack://application:,,,/Assets/DefaultMap.json";
         public const string HistoryFileName = "history.json";
         public const double OriginalGameUpdateIntervalSeconds = 1.5;
         public const string PeriodicTableJsonFileName = "pack://application:,,,/Assets/PeriodicTable.json";
