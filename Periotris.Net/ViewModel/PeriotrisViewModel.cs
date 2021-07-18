@@ -176,12 +176,12 @@ namespace Periotris.Net.ViewModel
         /// </summary>
         public void StartGame()
         {
-            RecreateAssistGrids();
-            foreach (FrameworkElement block in _blocksByPosition.Values)
-            {
-                _sprites.Remove(block);
-            }
+            // Clear remaining sprites.
+            _sprites.Clear();
+            // Clear blocks.
+            _blocksByPosition.Clear();
 
+            RecreateAssistGrids();
             _model.StartGame();
             OnPropertyChanged(nameof(GameOver));
             OnPropertyChanged(nameof(GameWon));
