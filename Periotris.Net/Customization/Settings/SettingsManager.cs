@@ -82,6 +82,7 @@ namespace Periotris.Net.Customization.Settings
         private void WriteIntoFile()
         {
             using Stream settingsStream = FileIO.OpenStreamByType(PeriotrisConst.SettingsFileName, PathType.Data);
+            settingsStream.SetLength(0); // Truncate original stream
             using StreamWriter writer = new(settingsStream);
             JsonSerializer serializer = new();
             serializer.Serialize(writer, settings, typeof(Settings));
