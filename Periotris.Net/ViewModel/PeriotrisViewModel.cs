@@ -17,6 +17,7 @@
  */
 
 using Periotris.Net.Common;
+using Periotris.Net.Customization.Map;
 using Periotris.Net.Customization.Settings;
 using Periotris.Net.Model;
 using Periotris.Net.View;
@@ -94,7 +95,7 @@ namespace Periotris.Net.ViewModel
         {
             set
             {
-                Scale = value.Width / PeriotrisConst.PlayAreaWidth;
+                Scale = value.Width / MapManager.Instance.Map.ColumnsCount;
                 _model.UpdateAllBlocks();
                 RecreateAssistGrids();
             }
@@ -282,18 +283,18 @@ namespace Periotris.Net.ViewModel
                 return;
             }
 
-            for (int x = 0; x < PeriotrisConst.PlayAreaWidth; x++)
+            for (int x = 0; x < MapManager.Instance.Map.ColumnsCount; x++)
             {
                 FrameworkElement scanLine = TetrisControlHelper.VerticalAssistGridLineFactory(
-                    x, PeriotrisConst.PlayAreaHeight, Scale);
+                    x, MapManager.Instance.Map.RowsCount, Scale);
                 _assistGridLines.Add(scanLine);
                 _sprites.Add(scanLine);
             }
 
-            for (int y = 0; y < PeriotrisConst.PlayAreaHeight; y++)
+            for (int y = 0; y < MapManager.Instance.Map.RowsCount; y++)
             {
                 FrameworkElement scanLine = TetrisControlHelper.HorizontalAssistGridLineFactory(
-                    y, PeriotrisConst.PlayAreaWidth, Scale);
+                    y, MapManager.Instance.Map.ColumnsCount, Scale);
                 _assistGridLines.Add(scanLine);
                 _sprites.Add(scanLine);
             }
