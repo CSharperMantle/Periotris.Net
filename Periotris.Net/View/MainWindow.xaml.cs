@@ -17,6 +17,7 @@
  */
 
 using MahApps.Metro.Controls;
+using Microsoft.Win32;
 using Periotris.Net.ViewModel;
 using System;
 using System.Diagnostics;
@@ -65,6 +66,20 @@ namespace Periotris.Net.View
         private void LaunchGitHubRepo(object sender, RoutedEventArgs eventArgs)
         {
             _ = OpenUrl("https://github.com/CSharperMantle/Periotris.Net");
+        }
+
+        private void MapPathOpenButton_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new();
+            openFileDialog.Filter = "JSON (.json)|*.json";
+            openFileDialog.DefaultExt = ".json";
+            openFileDialog.Multiselect = false;
+            bool? result = openFileDialog.ShowDialog();
+
+            if (result.HasValue && result.Value)
+            {
+                _viewModel.CustomMapPath = openFileDialog.FileName;
+            }
         }
 
         private Process OpenUrl(string url)

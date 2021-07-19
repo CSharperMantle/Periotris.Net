@@ -168,6 +168,51 @@ namespace Periotris.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Browse....
+        /// </summary>
+        public static string MapPathOpenButtonContent {
+            get {
+                return ResourceManager.GetString("MapPathOpenButtonContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom map path:.
+        /// </summary>
+        public static string MapPathOpenHeader {
+            get {
+                return ResourceManager.GetString("MapPathOpenHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom map:.
+        /// </summary>
+        public static string MapPathToggleHeader {
+            get {
+                return ResourceManager.GetString("MapPathToggleHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        public static string MapPathToggleOffContent {
+            get {
+                return ResourceManager.GetString("MapPathToggleOffContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        public static string MapPathToggleOnContent {
+            get {
+                return ResourceManager.GetString("MapPathToggleOnContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Settings.
         /// </summary>
         public static string SettingsFlyoutHeader {

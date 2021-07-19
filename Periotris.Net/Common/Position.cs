@@ -17,10 +17,13 @@
  */
 
 using System;
+using System.Runtime.Serialization;
 using System.Windows;
 
 namespace Periotris.Net.Common
 {
+    [Serializable]
+    [DataContract]
     public struct Position : IEquatable<Position>
     {
         public Position(int x, int y)
@@ -29,8 +32,8 @@ namespace Periotris.Net.Common
             Y = y;
         }
 
-        public int X { get; set; }
-        public int Y { get; set; }
+        [DataMember] public int X { get; set; }
+        [DataMember] public int Y { get; set; }
 
         public static bool Equals(Position pos1, Position pos2)
         {

@@ -85,6 +85,22 @@
                                           IsEditable="False">
                                 </ComboBox>
                             </mah:MetroHeader>
+                            <mah:MetroHeader
+                                Margin="0 10 0 0"
+                                Header="{x:Static p:MainWindowResources.MapPathToggleHeader}">
+                                <mah:ToggleSwitch x:Name="MapPathToggle"
+                                                  OnContent="{x:Static p:MainWindowResources.MapPathToggleOnContent}"
+                                                  OffContent="{x:Static p:MainWindowResources.MapPathToggleOffContent}"
+                                                  IsOn="{Binding Path=UseCustomMap, Mode=TwoWay}" />
+                            </mah:MetroHeader>
+                            <mah:MetroHeader
+                                Margin="0 10 0 0"
+                                Header="{x:Static p:MainWindowResources.MapPathOpenHeader}">
+                                <Button x:Name="MapPathOpenButton"
+                                        Content="{Binding Path=CustomMapPath}"
+                                        IsEnabled="{Binding Path=UseCustomMap}"
+                                        Click="MapPathOpenButton_Click" />
+                            </mah:MetroHeader>
                         </StackPanel>
                     </ScrollViewer>
                 </Border>

@@ -17,6 +17,7 @@
  */
 
 using Periotris.Net.Common;
+using Periotris.Net.Customization.Map;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -151,230 +152,6 @@ namespace Periotris.Net.Model.Generation
             {4, 3, 0}
         };
 
-        public static readonly Block[,] PeriodicTableTemplate =
-                {
-            {
-                new Block(TetriminoKind.UnavailableToFill, new Position(0, 0)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(1, 0)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(2, 0)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(3, 0)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(4, 0)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(5, 0)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(6, 0)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(7, 0)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(8, 0)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(9, 0)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(10, 0)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(11, 0)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(12, 0)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(13, 0)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(14, 0)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(15, 0)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(16, 0)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(17, 0))
-            },
-            {
-                new Block(TetriminoKind.UnavailableToFill, new Position(0, 1)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(1, 1)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(2, 1)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(3, 1)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(4, 1)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(5, 1)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(6, 1)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(7, 1)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(8, 1)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(9, 1)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(10, 1)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(11, 1)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(12, 1)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(13, 1)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(14, 1)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(15, 1)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(16, 1)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(17, 1))
-            },
-            {
-                new Block(TetriminoKind.UnavailableToFill, new Position(0, 2)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(1, 2)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(2, 2)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(3, 2)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(4, 2)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(5, 2)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(6, 2)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(7, 2)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(8, 2)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(9, 2)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(10, 2)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(11, 2)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(12, 2)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(13, 2)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(14, 2)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(15, 2)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(16, 2)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(17, 2))
-            },
-            {
-                new Block(TetriminoKind.AvailableToFill, new Position(0, 3), -1),
-                new Block(TetriminoKind.UnavailableToFill, new Position(1, 3)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(2, 3)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(3, 3)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(4, 3)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(5, 3)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(6, 3)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(7, 3)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(8, 3)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(9, 3)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(10, 3)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(11, 3)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(12, 3)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(13, 3)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(14, 3)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(15, 3)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(16, 3)),
-                new Block(TetriminoKind.AvailableToFill, new Position(17, 3), -18)
-            },
-            {
-                new Block(TetriminoKind.AvailableToFill, new Position(0, 4), 1),
-                new Block(TetriminoKind.AvailableToFill, new Position(1, 4), -2),
-                new Block(TetriminoKind.UnavailableToFill, new Position(2, 4)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(3, 4)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(4, 4)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(5, 4)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(6, 4)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(7, 4)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(8, 4)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(9, 4)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(10, 4)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(11, 4)),
-                new Block(TetriminoKind.AvailableToFill, new Position(12, 4), -13),
-                new Block(TetriminoKind.AvailableToFill, new Position(13, 4), -14),
-                new Block(TetriminoKind.AvailableToFill, new Position(14, 4), -15),
-                new Block(TetriminoKind.AvailableToFill, new Position(15, 4), -16),
-                new Block(TetriminoKind.AvailableToFill, new Position(16, 4), -17),
-                new Block(TetriminoKind.AvailableToFill, new Position(17, 4), 2)
-            },
-            {
-                new Block(TetriminoKind.AvailableToFill, new Position(0, 5), 3),
-                new Block(TetriminoKind.AvailableToFill, new Position(1, 5), 4),
-                new Block(TetriminoKind.UnavailableToFill, new Position(2, 5)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(3, 5)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(4, 5)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(5, 5)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(6, 5)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(7, 5)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(8, 5)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(9, 5)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(10, 5)),
-                new Block(TetriminoKind.UnavailableToFill, new Position(11, 5)),
-                new Block(TetriminoKind.AvailableToFill, new Position(12, 5), 5),
-                new Block(TetriminoKind.AvailableToFill, new Position(13, 5), 6),
-                new Block(TetriminoKind.AvailableToFill, new Position(14, 5), 7),
-                new Block(TetriminoKind.AvailableToFill, new Position(15, 5), 8),
-                new Block(TetriminoKind.AvailableToFill, new Position(16, 5), 9),
-                new Block(TetriminoKind.AvailableToFill, new Position(17, 5), 10)
-            },
-            {
-                new Block(TetriminoKind.AvailableToFill, new Position(0, 6), 11),
-                new Block(TetriminoKind.AvailableToFill, new Position(1, 6), 12),
-                new Block(TetriminoKind.AvailableToFill, new Position(2, 6), -3),
-                new Block(TetriminoKind.AvailableToFill, new Position(3, 6), -4),
-                new Block(TetriminoKind.AvailableToFill, new Position(4, 6), -5),
-                new Block(TetriminoKind.AvailableToFill, new Position(5, 6), -6),
-                new Block(TetriminoKind.AvailableToFill, new Position(6, 6), -7),
-                new Block(TetriminoKind.AvailableToFill, new Position(7, 6), -8),
-                new Block(TetriminoKind.AvailableToFill, new Position(8, 6), -9),
-                new Block(TetriminoKind.AvailableToFill, new Position(9, 6), -10),
-                new Block(TetriminoKind.AvailableToFill, new Position(10, 6), -11),
-                new Block(TetriminoKind.AvailableToFill, new Position(11, 6), -12),
-                new Block(TetriminoKind.AvailableToFill, new Position(12, 6), 13),
-                new Block(TetriminoKind.AvailableToFill, new Position(13, 6), 14),
-                new Block(TetriminoKind.AvailableToFill, new Position(14, 6), 15),
-                new Block(TetriminoKind.AvailableToFill, new Position(15, 6), 16),
-                new Block(TetriminoKind.AvailableToFill, new Position(16, 6), 17),
-                new Block(TetriminoKind.AvailableToFill, new Position(17, 6), 18)
-            },
-            {
-                new Block(TetriminoKind.AvailableToFill, new Position(0, 7), 19),
-                new Block(TetriminoKind.AvailableToFill, new Position(1, 7), 20),
-                new Block(TetriminoKind.AvailableToFill, new Position(2, 7), 21),
-                new Block(TetriminoKind.AvailableToFill, new Position(3, 7), 22),
-                new Block(TetriminoKind.AvailableToFill, new Position(4, 7), 23),
-                new Block(TetriminoKind.AvailableToFill, new Position(5, 7), 24),
-                new Block(TetriminoKind.AvailableToFill, new Position(6, 7), 25),
-                new Block(TetriminoKind.AvailableToFill, new Position(7, 7), 26),
-                new Block(TetriminoKind.AvailableToFill, new Position(8, 7), 27),
-                new Block(TetriminoKind.AvailableToFill, new Position(9, 7), 28),
-                new Block(TetriminoKind.AvailableToFill, new Position(10, 7), 29),
-                new Block(TetriminoKind.AvailableToFill, new Position(11, 7), 30),
-                new Block(TetriminoKind.AvailableToFill, new Position(12, 7), 31),
-                new Block(TetriminoKind.AvailableToFill, new Position(13, 7), 32),
-                new Block(TetriminoKind.AvailableToFill, new Position(14, 7), 33),
-                new Block(TetriminoKind.AvailableToFill, new Position(15, 7), 34),
-                new Block(TetriminoKind.AvailableToFill, new Position(16, 7), 35),
-                new Block(TetriminoKind.AvailableToFill, new Position(17, 7), 36)
-            },
-            {
-                new Block(TetriminoKind.AvailableToFill, new Position(0, 8), 37),
-                new Block(TetriminoKind.AvailableToFill, new Position(1, 8), 38),
-                new Block(TetriminoKind.AvailableToFill, new Position(2, 8), 39),
-                new Block(TetriminoKind.AvailableToFill, new Position(3, 8), 40),
-                new Block(TetriminoKind.AvailableToFill, new Position(4, 8), 41),
-                new Block(TetriminoKind.AvailableToFill, new Position(5, 8), 42),
-                new Block(TetriminoKind.AvailableToFill, new Position(6, 8), 43),
-                new Block(TetriminoKind.AvailableToFill, new Position(7, 8), 44),
-                new Block(TetriminoKind.AvailableToFill, new Position(8, 8), 45),
-                new Block(TetriminoKind.AvailableToFill, new Position(9, 8), 46),
-                new Block(TetriminoKind.AvailableToFill, new Position(10, 8), 47),
-                new Block(TetriminoKind.AvailableToFill, new Position(11, 8), 48),
-                new Block(TetriminoKind.AvailableToFill, new Position(12, 8), 49),
-                new Block(TetriminoKind.AvailableToFill, new Position(13, 8), 50),
-                new Block(TetriminoKind.AvailableToFill, new Position(14, 8), 51),
-                new Block(TetriminoKind.AvailableToFill, new Position(15, 8), 52),
-                new Block(TetriminoKind.AvailableToFill, new Position(16, 8), 53),
-                new Block(TetriminoKind.AvailableToFill, new Position(17, 8), 54)
-            },
-            {
-                new Block(TetriminoKind.AvailableToFill, new Position(0, 9), 55),
-                new Block(TetriminoKind.AvailableToFill, new Position(1, 9), 56),
-                new Block(TetriminoKind.AvailableToFill, new Position(2, 9), 57),
-                new Block(TetriminoKind.AvailableToFill, new Position(3, 9), 72),
-                new Block(TetriminoKind.AvailableToFill, new Position(4, 9), 73),
-                new Block(TetriminoKind.AvailableToFill, new Position(5, 9), 74),
-                new Block(TetriminoKind.AvailableToFill, new Position(6, 9), 75),
-                new Block(TetriminoKind.AvailableToFill, new Position(7, 9), 76),
-                new Block(TetriminoKind.AvailableToFill, new Position(8, 9), 77),
-                new Block(TetriminoKind.AvailableToFill, new Position(9, 9), 78),
-                new Block(TetriminoKind.AvailableToFill, new Position(10, 9), 79),
-                new Block(TetriminoKind.AvailableToFill, new Position(11, 9), 80),
-                new Block(TetriminoKind.AvailableToFill, new Position(12, 9), 81),
-                new Block(TetriminoKind.AvailableToFill, new Position(13, 9), 82),
-                new Block(TetriminoKind.AvailableToFill, new Position(14, 9), 83),
-                new Block(TetriminoKind.AvailableToFill, new Position(15, 9), 84),
-                new Block(TetriminoKind.AvailableToFill, new Position(16, 9), 85),
-                new Block(TetriminoKind.AvailableToFill, new Position(17, 9), 86)
-            },
-            {
-                new Block(TetriminoKind.AvailableToFill, new Position(0, 10), 87),
-                new Block(TetriminoKind.AvailableToFill, new Position(1, 10), 88),
-                new Block(TetriminoKind.AvailableToFill, new Position(2, 10), 89),
-                new Block(TetriminoKind.AvailableToFill, new Position(3, 10), 104),
-                new Block(TetriminoKind.AvailableToFill, new Position(4, 10), 105),
-                new Block(TetriminoKind.AvailableToFill, new Position(5, 10), 106),
-                new Block(TetriminoKind.AvailableToFill, new Position(6, 10), 107),
-                new Block(TetriminoKind.AvailableToFill, new Position(7, 10), 108),
-                new Block(TetriminoKind.AvailableToFill, new Position(8, 10), 109),
-                new Block(TetriminoKind.AvailableToFill, new Position(9, 10), 110),
-                new Block(TetriminoKind.AvailableToFill, new Position(10, 10), 111),
-                new Block(TetriminoKind.AvailableToFill, new Position(11, 10), 112),
-                new Block(TetriminoKind.AvailableToFill, new Position(12, 10), 113),
-                new Block(TetriminoKind.AvailableToFill, new Position(13, 10), 114),
-                new Block(TetriminoKind.AvailableToFill, new Position(14, 10), 115),
-                new Block(TetriminoKind.AvailableToFill, new Position(15, 10), 116),
-                new Block(TetriminoKind.AvailableToFill, new Position(16, 10), 117),
-                new Block(TetriminoKind.AvailableToFill, new Position(17, 10), 118)
-            }
-        };
-
         public static readonly int[,] TeeDownMask =
                 {
             {0, 0, 0},
@@ -402,14 +179,6 @@ namespace Periotris.Net.Model.Generation
             {2, 3, 4},
             {0, 0, 0}
         };
-
-        /// <summary>
-        ///     Total available blocks in <see cref="GeneratorHelper.PeriodicTableTemplate" />.
-        /// </summary>
-        /// <remarks>
-        ///     Update this if the whole pattern is changed.
-        /// </remarks>
-        public static readonly int TotalAvailableBlocks = 108;
 
         public static readonly int[,] ZCisDownMask =
         {
@@ -577,7 +346,7 @@ namespace Periotris.Net.Model.Generation
                 _ => throw new ArgumentException(null, nameof(kind)),
             };
             int row = 0;
-            int column = (PeriotrisConst.PlayAreaWidth - length) / 2;
+            int column = (MapManager.Instance.Map.ColumnsCount - length) / 2;
             return new Position(column, row);
         }
 

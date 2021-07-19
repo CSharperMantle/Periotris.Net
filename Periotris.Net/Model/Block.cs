@@ -16,13 +16,18 @@
  * along with this program.  If not, see < https://github.com/CSharperMantle/Periotris.Net/blob/main/LICENSE >.
  */
 
+using Newtonsoft.Json;
 using Periotris.Net.Common;
+using System;
+using System.Runtime.Serialization;
 
 namespace Periotris.Net.Model
 {
     /// <summary>
     ///     Represent a single block in an <see cref="Tetrimino" />.
     /// </summary>
+    [Serializable]
+    [DataContract]
     public class Block
     {
         public Block(TetriminoKind filledBy, Position position)
@@ -35,6 +40,7 @@ namespace Periotris.Net.Model
         {
         }
 
+        [JsonConstructor]
         public Block(TetriminoKind filledBy, Position position, int atomicNumber, int identifier)
         {
             FilledBy = filledBy;
@@ -50,11 +56,11 @@ namespace Periotris.Net.Model
         ///     As for grouping headers the number is negative of the grouping id.
         ///     i.e. group 1 header block has an AtomicNumber of -1.
         /// </remarks>
-        public int AtomicNumber { get; internal set; }
+        [DataMember] public int AtomicNumber { get; internal set; }
 
-        public TetriminoKind FilledBy { get; internal set; }
-        public int Identifier { get; internal set; }
-        public Position Position { get; internal set; }
+        [DataMember] public TetriminoKind FilledBy { get; internal set; }
+        [DataMember] public int Identifier { get; internal set; }
+        [DataMember] public Position Position { get; internal set; }
 
         public override string ToString()
         {

@@ -29,6 +29,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\DefaultMap.json" />
     <None Remove="Assets\LICENSE-NotoSans.txt" />
     <None Remove="Assets\NotoSans-Bold.ttf" />
     <None Remove="Assets\NotoSans-BoldItalic.ttf" />
@@ -51,6 +52,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Assets\DefaultMap.json" />
     <Resource Include="Assets\LICENSE-NotoSans.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>

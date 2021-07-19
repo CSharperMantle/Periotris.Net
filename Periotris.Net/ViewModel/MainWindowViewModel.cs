@@ -17,6 +17,7 @@
  */
 
 using Periotris.Net.Common;
+using Periotris.Net.Customization.Map;
 using Periotris.Net.Customization.Settings;
 using System.ComponentModel;
 
@@ -37,6 +38,7 @@ namespace Periotris.Net.ViewModel
                 Settings clone = manager.Settings;
                 clone.AssistanceGridMode = value;
                 manager.Settings = clone;
+                OnPropertyChanged(nameof(AssistanceGridMode));
             }
         }
 
@@ -49,10 +51,45 @@ namespace Periotris.Net.ViewModel
                 Settings clone = manager.Settings;
                 clone.ColorMode = value;
                 manager.Settings = clone;
+                OnPropertyChanged(nameof(ColorMode));
+            }
+        }
+
+        public string CustomMapPath
+        {
+            get => SettingsManager.Instance.Settings.CustomMapPath;
+            set
+            {
+                SettingsManager manager = SettingsManager.Instance;
+                Settings clone = manager.Settings;
+                clone.CustomMapPath = value;
+                manager.Settings = clone;
+                if (UseCustomMap)
+                {
+                    MapManager.Instance.LoadExternal(value);
+                }
+                else
+                {
+                    MapManager.Instance.LoadDefault();
+                }
+                OnPropertyChanged(nameof(CustomMapPath));
             }
         }
 
         public bool SettingsFlyoutOpened { get; set; }
+
+        public bool UseCustomMap
+        {
+            get => SettingsManager.Instance.Settings.UseCustomMap;
+            set
+            {
+                SettingsManager manager = SettingsManager.Instance;
+                Settings clone = manager.Settings;
+                clone.UseCustomMap = value;
+                manager.Settings = clone;
+                OnPropertyChanged(nameof(UseCustomMap));
+            }
+        }
 
         public void SwitchAboutFlyout()
         {
