@@ -17,6 +17,7 @@
  */
 
 using Periotris.Net.Common;
+using Periotris.Net.Customization.Map;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,16 +33,16 @@ namespace Periotris.Net.Model.Generation
         /// </summary>
         public static IReadOnlyList<Tetrimino> GetPlayablePattern(Random rand)
         {
-            int dim0Len = GeneratorHelper.PeriodicTableTemplate.GetLength(0);
-            int dim1Len = GeneratorHelper.PeriodicTableTemplate.GetLength(1);
+            int dim0Len = MapManager.Instance.Map.BlocksMap.GetLength(0);
+            int dim1Len = MapManager.Instance.Map.BlocksMap.GetLength(1);
             Block[,] template = new Block[dim0Len, dim1Len];
             for (int i = 0; i < dim0Len; i++)
             {
                 for (int j = 0; j < dim1Len; j++)
                 {
-                    template[i, j] = new Block(GeneratorHelper.PeriodicTableTemplate[i, j].FilledBy,
-                    GeneratorHelper.PeriodicTableTemplate[i, j].Position,
-                    GeneratorHelper.PeriodicTableTemplate[i, j].AtomicNumber
+                    template[i, j] = new Block(MapManager.Instance.Map.BlocksMap[i, j].FilledBy,
+                    MapManager.Instance.Map.BlocksMap[i, j].Position,
+                    MapManager.Instance.Map.BlocksMap[i, j].AtomicNumber
                 );
                 }
             }
@@ -137,7 +138,7 @@ namespace Periotris.Net.Model.Generation
             Block[,] workspace = template;
             // This is where we place our settled tetriminos - we use Stack because we may need to go back a few steps if a plan fails
             // The initial capacity is the estimated numbers of tetriminos
-            Stack<Tetrimino> settledTetrimino = new(GeneratorHelper.TotalAvailableBlocks / 4);
+            Stack<Tetrimino> settledTetrimino = new(MapManager.Instance.Map.TotalAvailableBlocksCount / 4);
             // This is where we place our information to generate randomized tetriminos
             Stack<Stack<KindDirectionsPair>> pendingTetriminoKinds = new();
 

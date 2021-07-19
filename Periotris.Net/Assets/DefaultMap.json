@@ -1,5 +1,5 @@
 {
-   "map": [
+   "BlocksMap": [
       [
          {
             "AtomicNumber": 0,
@@ -1805,5 +1805,5 @@
          }
       ]
    ],
-   "totalAvailableBlocksCount": 108
+   "TotalAvailableBlocksCount": 108
 }

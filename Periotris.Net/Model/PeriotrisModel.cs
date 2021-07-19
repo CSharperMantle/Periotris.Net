@@ -18,6 +18,7 @@
 
 using Periotris.Net.Common;
 using Periotris.Net.Customization.History;
+using Periotris.Net.Customization.Map;
 using Periotris.Net.Customization.Settings;
 using Periotris.Net.Model.Generation;
 using System;
@@ -221,7 +222,7 @@ namespace Periotris.Net.Model
             // End the game.
             foreach (Block block in _frozenBlocks)
             {
-                if (GeneratorHelper.PeriodicTableTemplate[block.Position.Y,
+                if (MapManager.Instance.Map.BlocksMap[block.Position.Y,
                     block.Position.X].AtomicNumber != block.AtomicNumber)
                 {
                     EndGame(false);
@@ -229,7 +230,7 @@ namespace Periotris.Net.Model
             }
 
             // All blocks settled.
-            if (_frozenBlocks.Count >= GeneratorHelper.TotalAvailableBlocks)
+            if (_frozenBlocks.Count >= MapManager.Instance.Map.TotalAvailableBlocksCount)
             {
                 EndGame(true);
             }
