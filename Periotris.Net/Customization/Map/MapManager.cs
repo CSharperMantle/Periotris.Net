@@ -18,6 +18,7 @@
 
 using Newtonsoft.Json;
 using Periotris.Net.Common;
+using Periotris.Net.Customization.Settings;
 using System;
 using System.IO;
 
@@ -40,6 +41,11 @@ namespace Periotris.Net.Customization.Map
         /// </summary>
         public Map Map => map;
 
+        public void LoadDefault()
+        {
+            map = Map.Default;
+        }
+
         /// <summary>
         ///     Load external map json file.
         /// </summary>
@@ -58,10 +64,18 @@ namespace Periotris.Net.Customization.Map
         private static readonly Lazy<MapManager> instance
             = new(() => new MapManager());
 
-        private Map map = Map.Default;
+        private Map map;
 
         private MapManager()
         {
+            if (SettingsManager.Instance.Settings.UseCustomMap)
+            {
+                LoadExternal(SettingsManager.Instance.Settings.CustomMapPath);
+            }
+            else
+            {
+                map = Map.Default;
+            }
         }
     }
 }

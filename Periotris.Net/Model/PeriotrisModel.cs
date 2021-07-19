@@ -19,7 +19,6 @@
 using Periotris.Net.Common;
 using Periotris.Net.Customization.History;
 using Periotris.Net.Customization.Map;
-using Periotris.Net.Customization.Settings;
 using Periotris.Net.Model.Generation;
 using System;
 using System.Collections.Generic;
@@ -301,12 +300,12 @@ namespace Periotris.Net.Model
         private bool CheckBlockCollision(Block block)
         {
             // Left or right border collision
-            if (block.Position.X < 0 || block.Position.X >= PeriotrisConst.PlayAreaWidth)
+            if (block.Position.X < 0 || block.Position.X >= MapManager.Instance.Map.ColumnsCount)
             {
                 return true;
             }
             // Bottom border collision
-            if (block.Position.Y >= PeriotrisConst.PlayAreaHeight)
+            if (block.Position.Y >= MapManager.Instance.Map.RowsCount)
             {
                 return true;
             }

@@ -16,7 +16,7 @@
  * along with this program.  If not, see < https://github.com/CSharperMantle/Periotris.Net/blob/main/LICENSE >.
  */
 
-using Periotris.Net.Common;
+using Periotris.Net.Customization.Map;
 using Periotris.Net.ViewModel;
 using System;
 using System.Windows;
@@ -87,12 +87,12 @@ namespace Periotris.Net.View
             double targetHeight;
             if (newSize.Width > newSize.Height)
             {
-                targetWidth = newSize.Height * (PeriotrisConst.PlayAreaWidth / (double)PeriotrisConst.PlayAreaHeight);
+                targetWidth = newSize.Height * (MapManager.Instance.Map.ColumnsCount / (double)MapManager.Instance.Map.RowsCount);
                 targetHeight = newSize.Height;
             }
             else
             {
-                targetHeight = newSize.Width * (PeriotrisConst.PlayAreaHeight / (double)PeriotrisConst.PlayAreaWidth);
+                targetHeight = newSize.Width * (MapManager.Instance.Map.RowsCount / (double)MapManager.Instance.Map.ColumnsCount);
                 targetWidth = newSize.Width;
             }
 

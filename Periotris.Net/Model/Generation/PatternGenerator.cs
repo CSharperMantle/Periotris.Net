@@ -33,8 +33,8 @@ namespace Periotris.Net.Model.Generation
         /// </summary>
         public static IReadOnlyList<Tetrimino> GetPlayablePattern(Random rand)
         {
-            int dim0Len = MapManager.Instance.Map.BlocksMap.GetLength(0);
-            int dim1Len = MapManager.Instance.Map.BlocksMap.GetLength(1);
+            int dim0Len = MapManager.Instance.Map.RowsCount;
+            int dim1Len = MapManager.Instance.Map.ColumnsCount;
             Block[,] template = new Block[dim0Len, dim1Len];
             for (int i = 0; i < dim0Len; i++)
             {

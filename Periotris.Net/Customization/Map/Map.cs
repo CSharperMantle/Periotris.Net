@@ -20,12 +20,8 @@ using Newtonsoft.Json;
 using Periotris.Net.Common;
 using Periotris.Net.Model;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Periotris.Net.Customization.Map
 {
@@ -49,6 +45,8 @@ namespace Periotris.Net.Customization.Map
         }
 
         [DataMember] public Block[,] BlocksMap { get; set; }
+        [DataMember] public int ColumnsCount { get; set; }
+        [DataMember] public int RowsCount { get; set; }
         [DataMember] public int TotalAvailableBlocksCount { get; set; }
     }
 }

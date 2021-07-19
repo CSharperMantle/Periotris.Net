@@ -1805,5 +1805,7 @@
          }
       ]
    ],
-   "TotalAvailableBlocksCount": 108
+   "TotalAvailableBlocksCount": 108,
+   "ColumnsCount": 18,
+   "RowsCount": 11
 }

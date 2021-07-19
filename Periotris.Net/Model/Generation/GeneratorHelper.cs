@@ -17,6 +17,7 @@
  */
 
 using Periotris.Net.Common;
+using Periotris.Net.Customization.Map;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -345,7 +346,7 @@ namespace Periotris.Net.Model.Generation
                 _ => throw new ArgumentException(null, nameof(kind)),
             };
             int row = 0;
-            int column = (PeriotrisConst.PlayAreaWidth - length) / 2;
+            int column = (MapManager.Instance.Map.ColumnsCount - length) / 2;
             return new Position(column, row);
         }
 
