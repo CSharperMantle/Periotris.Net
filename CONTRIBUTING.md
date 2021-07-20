@@ -43,5 +43,16 @@ Your pull request MUST meet the following rules before it can be accepted:
 * A pull request MUST contain a body.
 * A pull request MUST be linked one or more issues. If there are no issues stating the problem the pull request is to fix, please open a issue before submitting a pull request.
 * Commits in a pull request MUST comply with [Convenctional Commits v1.0.0](https://www.conventionalcommits.org/en/v1.0.0/) rules, with the following constraints:
-    * The `type` field MUST contain one of the following nouns: `build, chore, ci, docs, feat, fix, perf, refactor, style, test, other`.
+    * The `type` field MUST contain one of the following nouns: `build`, `chore`, `ci`, `docs`, `feat`, `fix`, `impl`, `perf`, `refactor`, `style`, `test`, `other`.
+        * Labels `feat` and `fix` are essentially the same as defined in [Convenctional Commits v1.0.0](https://www.conventionalcommits.org/en/v1.0.0/).
+        * Label `build` is used when changes are for changes related to build systems, such as bumping version numbers, fixing a broken build, or build stage optimizations.
+        * Label `chore` is used especially for trivial changes. Not to be confused with `refactor` and `style`.
+        * Label `ci` is used for continuous integration system testing and troubleshooting.
+        * Label `docs` is used for documentation-related changes.
+        * Label `impl` is used for indicating stages of implementation a `feat`, `fix` or `perf`. `impl`s are usually used as checkpoints for a conclusive `feat`, `fix` or `perf` commit.
+        * Label `perf` is used specifically for performance-related optimizations.
+        * Label `refactor` is used, usually with a tool, when refactoring the project.
+        * Label `style` is used with a automatic format tool.
+        * Label `test` is used for unit testing.
+        * Label `other` is a default option for any changes that can not fit into said tags.
 * A pull request SHOULD be able to pass all related CI pipelines, also known as 'checks'.

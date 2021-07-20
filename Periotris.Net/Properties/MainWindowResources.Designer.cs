@@ -168,15 +168,6 @@ namespace Periotris.Net.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Browse....
-        /// </summary>
-        public static string MapPathOpenButtonContent {
-            get {
-                return ResourceManager.GetString("MapPathOpenButtonContent", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Custom map path:.
         /// </summary>
         public static string MapPathOpenHeader {

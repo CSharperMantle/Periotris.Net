@@ -157,6 +157,18 @@ You should have received a copy of the GNU General Public License along with thi
   <data name="LaunchGitHubRepoButtonToolTip" xml:space="preserve">
     <value>在浏览器中访问Periotris.NET的代码仓库</value>
   </data>
+  <data name="MapPathOpenHeader" xml:space="preserve">
+    <value>自定义地图路径:</value>
+  </data>
+  <data name="MapPathToggleHeader" xml:space="preserve">
+    <value>使用自定义地图:</value>
+  </data>
+  <data name="MapPathToggleOffContent" xml:space="preserve">
+    <value>禁用</value>
+  </data>
+  <data name="MapPathToggleOnContent" xml:space="preserve">
+    <value>启用</value>
+  </data>
   <data name="SettingsFlyoutHeader" xml:space="preserve">
     <value>设置</value>
   </data>
