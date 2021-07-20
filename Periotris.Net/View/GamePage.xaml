@@ -75,14 +75,15 @@
         </StackPanel>
 
         <Border x:Name="PlayArea"
-                Grid.Row="1" Margin="10"
+                Grid.Row="1"
                 Background="Black"
                 Loaded="PlayArea_Loaded">
             <ItemsControl
                 ItemsSource="{Binding Path=Sprites}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <Canvas Background="Black" />
+                        <Canvas Background="Black"
+                                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
             </ItemsControl>

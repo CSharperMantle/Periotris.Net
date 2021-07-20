@@ -56,9 +56,6 @@ namespace Periotris.Net.ViewModel
         /// <summary>
         ///     Scaling factor for proper positioning.
         /// </summary>
-        /// <remarks>
-        ///     TODO.
-        /// </remarks>
         public static double Scale { get; private set; }
 
         public AssistanceGridMode AssistanceGridMode

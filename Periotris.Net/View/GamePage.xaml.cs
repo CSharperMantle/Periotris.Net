@@ -85,7 +85,8 @@ namespace Periotris.Net.View
         {
             double targetWidth;
             double targetHeight;
-            if (newSize.Width > newSize.Height)
+            if ((newSize.Width / newSize.Height)
+                > (MapManager.Instance.Map.ColumnsCount / (double)MapManager.Instance.Map.RowsCount))
             {
                 targetWidth = newSize.Height * (MapManager.Instance.Map.ColumnsCount / (double)MapManager.Instance.Map.RowsCount);
                 targetHeight = newSize.Height;
@@ -99,6 +100,7 @@ namespace Periotris.Net.View
             PlayArea.Width = targetWidth;
             PlayArea.Height = targetHeight;
             _viewModel.PlayAreaSize = new Size(targetWidth, targetHeight);
+            System.Diagnostics.Debug.WriteLine(targetWidth / targetHeight - (MapManager.Instance.Map.ColumnsCount / (double)MapManager.Instance.Map.RowsCount));
         }
     }
 }
