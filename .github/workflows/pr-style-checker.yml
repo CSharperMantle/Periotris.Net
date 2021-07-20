@@ -20,7 +20,7 @@ jobs:
           Unfortunately, this pull request doesn't meet our standards defined in CONTRIBUTING.md.
         strict: true
         label: non-conventional
-        allowed_types: 'build,chore,ci,docs,feat,fix,perf,refactor,style,test,other'
+        allowed_types: 'build,chore,ci,docs,feat,fix,impl,perf,refactor,style,test,other'
         allowed_scopes: ''
         check_draft: false
         maximum_file_change: 0

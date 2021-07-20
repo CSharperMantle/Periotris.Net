@@ -160,9 +160,6 @@ You should have received a copy of the GNU General Public License along with thi
   <data name="MainWindowTitle" xml:space="preserve">
     <value>Periotris.NET</value>
   </data>
-  <data name="MapPathOpenButtonContent" xml:space="preserve">
-    <value>Browse...</value>
-  </data>
   <data name="MapPathOpenHeader" xml:space="preserve">
     <value>Custom map path:</value>
   </data>

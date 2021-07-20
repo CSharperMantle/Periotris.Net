@@ -64,7 +64,7 @@ namespace Periotris.Net.ViewModel
                 Settings clone = manager.Settings;
                 clone.CustomMapPath = value;
                 manager.Settings = clone;
-                if (UseCustomMap)
+                if (UseCustomMap && value != PeriotrisConst.DefaultMapJsonFileName)
                 {
                     MapManager.Instance.LoadExternal(value);
                 }
@@ -87,6 +87,14 @@ namespace Periotris.Net.ViewModel
                 Settings clone = manager.Settings;
                 clone.UseCustomMap = value;
                 manager.Settings = clone;
+                if (value && CustomMapPath != PeriotrisConst.DefaultMapJsonFileName)
+                {
+                    MapManager.Instance.LoadExternal(CustomMapPath);
+                }
+                else
+                {
+                    MapManager.Instance.LoadDefault();
+                }
                 OnPropertyChanged(nameof(UseCustomMap));
             }
         }

@@ -107,7 +107,7 @@
             </mah:Flyout>
         </mah:FlyoutsControl>
     </mah:MetroWindow.Flyouts>
-    <Frame x:Name="MainFrame"
+    <Frame x:Name="MainFrame" Margin="10"
            NavigationUIVisibility="Hidden"
            HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
 </mah:MetroWindow>
