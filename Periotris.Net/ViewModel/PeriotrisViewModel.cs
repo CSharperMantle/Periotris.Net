@@ -58,30 +58,6 @@ namespace Periotris.Net.ViewModel
         /// </summary>
         public static double Scale { get; private set; }
 
-        public AssistanceGridMode AssistanceGridMode
-        {
-            get => SettingsManager.Instance.Settings.AssistanceGridMode;
-            set
-            {
-                SettingsManager manager = SettingsManager.Instance;
-                Settings clone = manager.Settings;
-                clone.AssistanceGridMode = value;
-                manager.Settings = clone;
-            }
-        }
-
-        public ColorMode ColorMode
-        {
-            get => SettingsManager.Instance.Settings.ColorMode;
-            set
-            {
-                SettingsManager manager = SettingsManager.Instance;
-                Settings clone = manager.Settings;
-                clone.ColorMode = value;
-                manager.Settings = clone;
-            }
-        }
-
         public bool GameOver => _model.GameEnded && !_model.Victory;
 
         public bool GameWon => _model.GameEnded && _model.Victory;
@@ -238,7 +214,9 @@ namespace Periotris.Net.ViewModel
                 {
                     // Create a new BlockControl.
                     FrameworkElement blockControl =
-                        TetrisControlHelper.AnnotatedBlockControlFactory(e.BlockUpdated, ColorMode, Scale);
+                        TetrisControlHelper.AnnotatedBlockControlFactory(e.BlockUpdated,
+                        SettingsManager.Instance.Settings.ColorMode,
+                        Scale);
                     _blocksByPosition.Add(e.BlockUpdated.Position, blockControl);
                     _sprites.Add(blockControl);
                 }
@@ -275,7 +253,7 @@ namespace Periotris.Net.ViewModel
             }
 
             _assistGridLines.Clear();
-            if (AssistanceGridMode != AssistanceGridMode.Enabled)
+            if (SettingsManager.Instance.AssistanceGridMode != AssistanceGridMode.Enabled)
             {
                 return;
             }
