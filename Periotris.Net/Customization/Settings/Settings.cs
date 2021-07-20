@@ -33,7 +33,7 @@ namespace Periotris.Net.Customization.Settings
         {
             ColorMode = ColorMode.Default,
             AssistanceGridMode = AssistanceGridMode.Enabled,
-            HistoryFilePathFull = PeriotrisConst.PeriotrisGameDataPath + PeriotrisConst.HistoryFileName,
+            HistoryFilePath = PeriotrisConst.PeriotrisGameDataPath + PeriotrisConst.HistoryFileName,
             UseCustomMap = false,
             CustomMapPath = PeriotrisConst.DefaultMapJsonFileName
         };
@@ -41,7 +41,7 @@ namespace Periotris.Net.Customization.Settings
         [DataMember] public AssistanceGridMode AssistanceGridMode { get; set; }
         [DataMember] public ColorMode ColorMode { get; set; }
         [DataMember] public string CustomMapPath { get; set; }
-        [DataMember] public string HistoryFilePathFull { get; set; }
+        [DataMember] public string HistoryFilePath { get; set; }
         [DataMember] public bool UseCustomMap { get; set; }
     }
 }

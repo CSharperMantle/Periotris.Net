@@ -18,6 +18,7 @@
 
 using Newtonsoft.Json;
 using Periotris.Net.Common;
+using Periotris.Net.Customization.Map;
 using System;
 using System.IO;
 
@@ -34,6 +35,47 @@ namespace Periotris.Net.Customization.Settings
         /// </summary>
         public static SettingsManager Instance => instance.Value;
 
+        public AssistanceGridMode AssistanceGridMode
+        {
+            get => Settings.AssistanceGridMode;
+            set
+            {
+                Settings clone = Settings;
+                clone.AssistanceGridMode = value;
+                Settings = clone;
+            }
+        }
+
+        public ColorMode ColorMode
+        {
+            get => Settings.ColorMode;
+            set
+            {
+                Settings clone = Settings;
+                clone.ColorMode = value;
+                Settings = clone;
+            }
+        }
+
+        public string CustomMapPath
+        {
+            get => Settings.CustomMapPath;
+            set
+            {
+                Settings clone = Settings;
+                clone.CustomMapPath = value;
+                Settings = clone;
+                if (UseCustomMap && value != PeriotrisConst.DefaultMapJsonFileName)
+                {
+                    MapManager.Instance.LoadExternal(value);
+                }
+                else
+                {
+                    MapManager.Instance.LoadDefault();
+                }
+            }
+        }
+
         /// <summary>
         ///     The exposed <see cref="Settings"/> object to which user can write.
         ///     Disk data persistence will be guaranteed by the property.
@@ -45,6 +87,25 @@ namespace Periotris.Net.Customization.Settings
             {
                 settings = value;
                 WriteIntoFile();
+            }
+        }
+
+        public bool UseCustomMap
+        {
+            get => Settings.UseCustomMap;
+            set
+            {
+                Settings clone = Settings;
+                clone.UseCustomMap = value;
+                Settings = clone;
+                if (value && CustomMapPath != PeriotrisConst.DefaultMapJsonFileName)
+                {
+                    MapManager.Instance.LoadExternal(CustomMapPath);
+                }
+                else
+                {
+                    MapManager.Instance.LoadDefault();
+                }
             }
         }
 

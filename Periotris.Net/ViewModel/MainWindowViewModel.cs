@@ -31,47 +31,30 @@ namespace Periotris.Net.ViewModel
 
         public AssistanceGridMode AssistanceGridMode
         {
-            get => SettingsManager.Instance.Settings.AssistanceGridMode;
+            get => SettingsManager.Instance.AssistanceGridMode;
             set
             {
-                SettingsManager manager = SettingsManager.Instance;
-                Settings clone = manager.Settings;
-                clone.AssistanceGridMode = value;
-                manager.Settings = clone;
+                SettingsManager.Instance.AssistanceGridMode = value;
                 OnPropertyChanged(nameof(AssistanceGridMode));
             }
         }
 
         public ColorMode ColorMode
         {
-            get => SettingsManager.Instance.Settings.ColorMode;
+            get => SettingsManager.Instance.ColorMode;
             set
             {
-                SettingsManager manager = SettingsManager.Instance;
-                Settings clone = manager.Settings;
-                clone.ColorMode = value;
-                manager.Settings = clone;
+                SettingsManager.Instance.ColorMode = value;
                 OnPropertyChanged(nameof(ColorMode));
             }
         }
 
         public string CustomMapPath
         {
-            get => SettingsManager.Instance.Settings.CustomMapPath;
+            get => SettingsManager.Instance.CustomMapPath;
             set
             {
-                SettingsManager manager = SettingsManager.Instance;
-                Settings clone = manager.Settings;
-                clone.CustomMapPath = value;
-                manager.Settings = clone;
-                if (UseCustomMap && value != PeriotrisConst.DefaultMapJsonFileName)
-                {
-                    MapManager.Instance.LoadExternal(value);
-                }
-                else
-                {
-                    MapManager.Instance.LoadDefault();
-                }
+                SettingsManager.Instance.CustomMapPath = value;
                 OnPropertyChanged(nameof(CustomMapPath));
             }
         }
@@ -80,21 +63,10 @@ namespace Periotris.Net.ViewModel
 
         public bool UseCustomMap
         {
-            get => SettingsManager.Instance.Settings.UseCustomMap;
+            get => SettingsManager.Instance.UseCustomMap;
             set
             {
-                SettingsManager manager = SettingsManager.Instance;
-                Settings clone = manager.Settings;
-                clone.UseCustomMap = value;
-                manager.Settings = clone;
-                if (value && CustomMapPath != PeriotrisConst.DefaultMapJsonFileName)
-                {
-                    MapManager.Instance.LoadExternal(CustomMapPath);
-                }
-                else
-                {
-                    MapManager.Instance.LoadDefault();
-                }
+                SettingsManager.Instance.UseCustomMap = value;
                 OnPropertyChanged(nameof(UseCustomMap));
             }
         }
