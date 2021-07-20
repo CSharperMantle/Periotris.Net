@@ -100,7 +100,6 @@ namespace Periotris.Net.View
             PlayArea.Width = targetWidth;
             PlayArea.Height = targetHeight;
             _viewModel.PlayAreaSize = new Size(targetWidth, targetHeight);
-            System.Diagnostics.Debug.WriteLine(targetWidth / targetHeight - (MapManager.Instance.Map.ColumnsCount / (double)MapManager.Instance.Map.RowsCount));
         }
     }
 }
