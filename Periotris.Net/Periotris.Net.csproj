@@ -14,15 +14,15 @@
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/CSharperMantle/Periotris.Net</PackageProjectUrl>
     <RepositoryUrl>https://github.com/CSharperMantle/Periotris.Net.git</RepositoryUrl>
-    <AssemblyVersion>1.13.0.0</AssemblyVersion>
-    <FileVersion>1.13.0.0</FileVersion>
+    <AssemblyVersion>1.13.3.0</AssemblyVersion>
+    <FileVersion>1.13.3.0</FileVersion>
     <Description>Periotris.Net is a .NET 5 porting and modernized version of CSharperMantle's Periotris game belonging to CmTetris product family.</Description>
     <Copyright>Copyright (c) 2020-present Rong "Mantle" Bao (aka CSharperMantle)</Copyright>
     <NeutralLanguage></NeutralLanguage>
     <PackageTags>game;tetris;tetrimino;wpf;chemistry;periodic-table;tetromino-tiling;tetromino-solver;puzzle</PackageTags>
     <SignAssembly>false</SignAssembly>
     <ApplicationIcon>Icon.ico</ApplicationIcon>
-    <Version>1.13.0</Version>
+    <Version>1.13.3</Version>
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     <Nullable>warnings</Nullable>
     <AnalysisLevel>5.0</AnalysisLevel>
