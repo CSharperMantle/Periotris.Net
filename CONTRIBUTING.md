@@ -56,3 +56,7 @@ Your pull request MUST meet the following rules before it can be accepted:
         * Label `test` is used for unit testing.
         * Label `other` is a default option for any changes that can not fit into said tags.
 * A pull request SHOULD be able to pass all related CI pipelines, also known as 'checks'.
+
+## Branching guidelines
+
+Periotris.Net uses [Git Branching Model](https://nvie.com/posts/a-successful-git-branching-model/).
